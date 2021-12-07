@@ -1,0 +1,10 @@
+Primeiramente, cabe mencionar que não existe fórmula mágica para a resolução dos problemas, cada situação pede um caminho específico para ser trilhado,
+porém, alguns passos gerais são de grande valia e, foi isso que nos foi passado na aula "Resolvendo problemas".
+Sendo assim, nos foi ensinado 7 passos fundamentais para a solução dos mesmos, quais sejam:
+1° ter ATENÇÃO no enunciado (entender o que o código deverá fazer);
+2° retirar INFORMAÇÕES RELEVANTES antes de escrever o código (separar palavras-chave (substantivos - variáveis; verbos - funções; condições - valores booleanos));
+3° pensar em ENTRADAS e SAÍDAS (como receber dados e sua saída; criar funções para a resolução);
+4° fazer um ESQUEMA VISUAL (montar cenários);
+5° criar um CÓDIGO FEIO (testar soluções);
+6° TESTAR: força-bruta(escrever em português mesmo);
+7° REFATORAR (ajeitar o código; após testar o seu funcionamento: dar bons nomes para as variáveis; separar funções; nada mais é do que implementação de melhorias).
