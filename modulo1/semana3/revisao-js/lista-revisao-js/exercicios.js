@@ -27,12 +27,20 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-
+  let novaArray = []
+  for(let num of array){
+    if(num % 2 === 0){
+      novaArray.push(Math.pow(num, 2))
+    }
+  }
+  return novaArray
 }
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
+  return array.reduce(function(a, b){
+    return Math.max(a, b)
+  })
 }
 
 // EXERCÍCIO 07
