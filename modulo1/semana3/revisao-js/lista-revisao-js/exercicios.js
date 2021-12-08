@@ -15,7 +15,9 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+    return array.sort(function(a, b){
+    return a-b
+    })
 }
 
 // EXERCÍCIO 04
@@ -80,7 +82,9 @@ function retornaContasComSaldoAtualizado(contas) {
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-
+  nome.sort(function(a, b){
+    return(a.nome > b.nome) ? 1 : ((b.nome > a.nome) ? -1 : 0)
+  })
 }
 
 // EXERCÍCIO 15B
