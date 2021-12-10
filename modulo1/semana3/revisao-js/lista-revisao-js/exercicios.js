@@ -15,16 +15,16 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    return array.sort(function(a, b){
-    return a-b
-    })
+  return array.sort(function (a, b) {
+    return a - b
+  })
 }
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
   let numerosPares = []
-  for(let i of array){
-    if(i % 2 === 0){
+  for (let i of array) {
+    if (i % 2 === 0) {
       numerosPares.push(i)
     }
   }
@@ -34,8 +34,8 @@ function retornaNumerosPares(array) {
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
   let novaArray = []
-  for(let num of array){
-    if(num % 2 === 0){
+  for (let num of array) {
+    if (num % 2 === 0) {
       novaArray.push(Math.pow(num, 2))
     }
   }
@@ -44,7 +44,7 @@ function retornaNumerosParesElevadosADois(array) {
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  return array.reduce(function(a, b){
+  return array.reduce(function (a, b) {
     return Math.max(a, b)
   })
 }
@@ -56,7 +56,13 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
-
+  let primeirosNumerosPares = []
+  for (let i = 0; primeirosNumerosPares.length < n; i++) {
+    if (i % 2 === 0) {
+      primeirosNumerosPares.push(i)
+    }
+  }
+  return primeirosNumerosPares
 }
 
 // EXERCÍCIO 09
@@ -81,16 +87,16 @@ function retornaPessoaAnonimizada(pessoa) {
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-  let pessoasAutorizadas = pessoas.filter((pessoas)=>{
-    return(pessoas.idade >14 && pessoas.idade <60 && pessoas.altura >=1.5)
+  let pessoasAutorizadas = pessoas.filter((pessoas) => {
+    return (pessoas.idade > 14 && pessoas.idade < 60 && pessoas.altura >= 1.5)
   })
   return pessoasAutorizadas
 }
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-  let pessoasNaoAutorizadas = pessoas.filter((pessoas)=>{
-    return !(pessoas.idade >14 && pessoas.idade <60 && pessoas.altura >=1.5)
+  let pessoasNaoAutorizadas = pessoas.filter((pessoas) => {
+    return !(pessoas.idade > 14 && pessoas.idade < 60 && pessoas.altura >= 1.5)
   })
   return pessoasNaoAutorizadas
 }
@@ -102,9 +108,10 @@ function retornaContasComSaldoAtualizado(contas) {
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  nome.sort(function(a, b){
-    return(a.nome > b.nome) ? 1 : ((b.nome > a.nome) ? -1 : 0)
+  nome.sort(function (a, b) {
+    return (a.nome > b.nome) ? 1 : ((b.nome > a.nome) ? -1 : 0)
   })
+  return nome.sort()
 }
 
 // EXERCÍCIO 15B
