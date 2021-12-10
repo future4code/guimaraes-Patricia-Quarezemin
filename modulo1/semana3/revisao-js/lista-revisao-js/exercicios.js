@@ -72,7 +72,13 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-
+  let segundoMaiorEMenorNumeros = []
+  let segundoMaior = array.map(Number).reduce(function(a, b){
+    return Math.max.length-2 (a, b)
+  })
+  let segundoMenor = array.map(Number).reduce(function(a, b){
+    return Math.min.length-2 (a, b)
+  })
 }
 
 // EXERCÍCIO 11
