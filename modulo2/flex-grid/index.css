@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container-principal {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 70px 1fr 70px;
+}
+
+.icone {
+    max-height: 15px;
+}
+
+.bolo-morango {
+    max-height: 200px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 30px 1fr 25px;
+    padding: 5px;
+}
+
+nav {
+    background-color: #f2d0e0;
+}
+
+header {
+    background-color: mediumvioletred;
+    display: grid;
+    grid-template-columns: 30px 1fr 100px;
+    align-content: center;
+}
+
+footer {
+    background-color: mediumvioletred;
+    text-align: center;
+}
+
+.rodape {
+    margin-top: 20px;
+}
+
+button {
+    margin-right: 30px;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
