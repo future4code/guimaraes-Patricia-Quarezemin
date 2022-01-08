@@ -3,25 +3,22 @@
     padding: 0%;
 }
 
-header {
+.container-principal {
     display: grid;
-    width: 100%;
-    background-color: turquoise;
-    padding: 25px 8%;
-    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr 50px;
 }
 
-.minha-logo {
-    width: 5%;
-    display: grid;
-   }
+ header {
+    background-color: turquoise;
+    color: turquoise;
+    width: 100%
+}
 
 main {
     background-color: rgb(157, 88, 207);
-    padding: 30px 8%;
-    align-self: center;
     text-align: center;
     width: 100%;
+    padding: 50px;
     
 }
 
@@ -31,12 +28,12 @@ main {
 }
 
 footer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     background-color: turquoise;
-    padding: 25px 8%;
+    bottom: 0;
+    width: 100%;
     text-align: center;
+    position: fixed;
+    
 }
 
 .iconeGitHub {
