@@ -1,0 +1,42 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+.container-principal {
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+}
+
+ header {
+    background-color: turquoise;
+    color: turquoise;
+    width: 100%
+}
+
+main {
+    background-color: rgb(157, 88, 207);
+    text-align: center;
+    width: 100%;
+    padding: 50px;
+    
+}
+
+.minha-imagem {
+    width: 20%;
+    border-radius: 50px;
+}
+
+footer {
+    background-color: turquoise;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    
+}
+
+.iconeGitHub {
+    width: 3%;
+    
+}
