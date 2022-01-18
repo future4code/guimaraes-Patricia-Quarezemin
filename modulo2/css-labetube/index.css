@@ -98,3 +98,24 @@ footer{
     background-color: coral;
     justify-content: center;
 }
+
+@media screen and (min-device-width: 320px) and (max-device-width: 480px){
+    div {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    header {
+        height: 600px;
+        height: 30vh;
+        justify-content: center;    
+    }
+
+    main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
