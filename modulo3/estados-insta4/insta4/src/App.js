@@ -2,35 +2,46 @@ import React from 'react';
 import styled from 'styled-components'
 import Post from './components/Post/Post';
 
-const MainContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-`
-
+// const MainContanier = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   align-items: center
+//   `
 class App extends React.Component {
-  render() {
-    return (
-      <MainContainer>
-        <Post
-          nomeUsuario={'paulinha'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
-        <Post
-          nomeUsuario={'fernanda'}
-          fotoUsuario={'https://picsum.photos/50/55'}
-          fotoPost={'https://picsum.photos/200/153'}
-        />
-        <Post
-          nomeUsuario={'camila'}
-          fotoUsuario={'https://picsum.photos/50/60'}
-          fotoPost={'https://picsum.photos/200/156'}
-        />
-      </MainContainer>
-    );
+  state={
+    usuario:[
+      {
+        nomeUsuario:'paulinha',
+        fotoUsuario:<img src='https://picsum.photos/50/50'></img>,
+        fotoPost:<img src='https://picsum.photos/200/150'></img>
+      },
+      {
+        nomeUsuario:'fernanda',
+        fotoUsuario:<img src='https://picsum.photos/50/55'></img>,
+        fotoPost:<img src='https://picsum.photos/200/153'></img>
+      },
+      {
+        nomeUsuario:'camila',
+        fotoUsuario:<img src='https://picsum.photos/50/60'></img>,
+        fotoPost:<img src='https://picsum.photos/200/156'></img>
+      }
+    ]
   }
-}
+render() {
+  const listaDeComponentes = this.state.usuario.map((usuario) =>{
+    return(
+      <p>
+        {usuario.nomeUsuario} - {usuario.fotoUsuario} - {usuario.fotoPost}
+      </p>
+    )
+  })
 
+  return(
+    <div>
+      {listaDeComponentes}
+    </div>
+  )
+}
+}
 export default App;
