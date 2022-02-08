@@ -8,6 +8,13 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 
+fotoUsuario = styled.array`
+  display: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center
+`
+
 const PostContainer = styled.div`
   border: 1px solid gray;
   width: 300px;
