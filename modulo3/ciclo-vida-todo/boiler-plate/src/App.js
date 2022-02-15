@@ -37,23 +37,51 @@ class App extends React.Component {
     }
 
   pegarTarefas() {
-    const tarefasString = localStorage.getItem('texto');
-    const tarefa = JSON.parse(tarefasString)
+    const idString = localStorage.getItem('id');
+    const id = JSON.parse(idString)
 
-    if(tarefa){
+    if(id){
       this.setState({
-        tarefa: tarefa
+        id: id
+      })
+    }
+    const textoString = localStorage.getItem('texto');
+    const texto = JSON.parse(textoString)
+
+    if(texto){
+      this.setState({
+        texto: texto
+      })
+    }
+    const completaString = localStorage.getItem('completa');
+    const completa = JSON.parse(completaString)
+
+    if(completa){
+      this.setState({
+        completa: completa
       })
     }
   }
-  componentDidUpdate() {
+
+  componentDidUpdate(prevProps, prevState) {
+    // executado após a atualização do componente
+    if(prevState.id !== this.state.id) {
+      localStorage.setItem('id', JSON.stringify(id))
+    }
+    if(prevState.texto !== this.state.texto){
+      localStorage.setItem('texto', JSON.stringify(texto))
+    }
+    if(prevState.completa !== this.state.completa){
+      localStorage.setItem('completa', JSON.stringify(completa))
+    }
+    
+  };
+
+  componentDidMount() { // ele vai ser chamado qdo o componente for criado! Chamado na primeira atualização, pq qdo é criado
     this.pegarTarefas();
-
   };
 
-  componentDidMount() {
-
-  };
+  //DidMount: executado após a montagem do componente
 
   onChangeInput = (event) => {
     this.setState ({inputValue: event.target.value})
@@ -94,7 +122,7 @@ class App extends React.Component {
     this.setState ({filtro: event.target.value})
   }
 
-  render() {
+  render() { // esse método é chamado sempre!
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
       switch (this.state.filtro) {
         case 'pendentes':
