@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import trocarTela from './Components/trocarTela';
 
 const createUser = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
 
@@ -15,8 +16,8 @@ class App extends React.Component {
 
   state = {
     users: [],
-    nameInput: '',
-    emailInput: ''
+    name: '',
+    email: ''
   }
 
   componentDidMount (){
@@ -27,7 +28,8 @@ class App extends React.Component {
     axios
       .get(getAllUsers, headers)
       .then((res) => {
-        console.log(res.data.result.list)
+        this.setState({users: res.data})
+        console.log(res.data)
       })
       .catch((error) => {
         console.log(error.response)
@@ -45,9 +47,9 @@ class App extends React.Component {
       .post(createUser, body, headers)
       .then((res) => {
         alert(`O usuário ${this.state.nameInput} foi criado com sucesso!`)
-        this.setState({nameInput: res.data.result.list})
+        this.setState({nameInput: res.data})
         this.setState({nameInput:''})
-        this.getAllUsers();
+        this.postCreateUser();
       })
       .catch((error) => {
         console.log(error.response);
@@ -67,11 +69,11 @@ class App extends React.Component {
   render() {
 
     const userComponents = this.state.users.map((user) => {
-      return <li key={user.id}>{user.name}</li>
+      return <p key={user.id}>{user.name}</p>
     })
     return (
       <div>
-        <button>Trocar de Tela</button>
+        <button onClick={trocarTela}>Trocar de Tela</button>
         <br/>
         <input
           value={this.state.nameInput}
@@ -81,7 +83,7 @@ class App extends React.Component {
         </input>
         <input
           value={this.state.emailInput}
-          placeholder="Email"
+          placeholder="E-mail"
           onChange={this.newEmailUserChange}
           >
         </input>
