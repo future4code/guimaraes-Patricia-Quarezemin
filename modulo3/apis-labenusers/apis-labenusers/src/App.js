@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import Cadastro from './Components/Cadastro';
 import Lista from './Components/Lista';
 
