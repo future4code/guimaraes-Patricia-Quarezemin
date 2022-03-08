@@ -1,14 +1,24 @@
 
 import React from 'react';
 import LogoSpotify from './Components/Images/spotify.png';
+import LogoInstagram from './Components/Images/instagram.png';
+import LogoFacebook from './Components/Images/facebook.png';
+import LogoTwitter from './Components/Images/twitter.png';
 import styled from 'styled-components';
 
-const logoHeader = styled.img`
-  width: 5%;
-  padding-top: 1%;
-  margin: 0;
+const LogoHeader = styled.img`
+  width: 5vw;
+  margin: 10px;
+  padding: 10px;
+  display: grid;
 `
 
+const LogoFooter = styled.img`
+  width: 2vw;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+`
 const Headers = styled.header`
   color: black;
   font-size: 30px;
@@ -16,8 +26,8 @@ const Headers = styled.header`
   padding-left: 5%;
   margin: 0;
   background-color: #C4C4C4;
-  color: whitesmoke;
-`;
+  font-family: "Lucida Console";
+ `;
 
 const Footers = styled.header`
   color: black;
@@ -33,11 +43,13 @@ function App (){
   return(
     <div>
       <Headers>
-        <logoHeader src={LogoSpotify} alt='logo spotify' />
+        <LogoHeader src={LogoSpotify} alt='logo spotify'></LogoHeader>
         <strong>Labefy</strong>
       </Headers>
       <Footers>
-        <p></p>
+        <LogoFooter src={LogoInstagram} alt='logo instagram'></LogoFooter>
+        <LogoFooter src={LogoFacebook} alt='logo instagram'></LogoFooter>
+        <LogoFooter src={LogoTwitter} alt='logo instagram'></LogoFooter>
       </Footers>
     </div>
   )
