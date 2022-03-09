@@ -44,13 +44,22 @@ const Footers = styled.header`
 
 const TituloCentral = styled.h2`
   font-size: 30px;
-  display: flex;
-  justify-content: center;
-  `
+  padding-top: 50px;
+  display: grid;
+  justify-items: center;
+`
+
+const ButtonsContainer = styled.button`
+  width: 4%;
+  padding: 1%;
+  margin-bottom: 2%;
+  border-radius: 20%;
+`
 const ContainerPrincipal = styled.div`
   background-color: #C4C4C4;
-  display: grid;
-  justify-content: center;
+  /* display: grid;
+  justify-content: center; */
+  height: 75vh;
   `
 function App (){
   return(
@@ -64,6 +73,9 @@ function App (){
         <h4>Crie uma nova Playlist:</h4>
         <input placeholder= 'Nome da Playlist'></input>
         <button>Salvar</button>
+        <br />
+        <h4>Visualizar as playlist criadas:</h4>
+        <ButtonsContainer>Clique aqui!</ButtonsContainer>
       </ContainerPrincipal>
       <Footers>
         <LogoFooter src={LogoInstagram} alt='logo instagram'></LogoFooter>
