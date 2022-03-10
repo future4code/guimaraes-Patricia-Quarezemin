@@ -29,7 +29,7 @@ const ContainerPrincipal = styled.div`
   height: 70vh;
   `
   
-class AddMusic extends React.Component {
+class Playlist extends React.Component {
     render() {
         return (
             <div>
@@ -38,18 +38,14 @@ class AddMusic extends React.Component {
                     <strong>Labefy</strong>
                 </Headers>
                 <ContainerPrincipal>
-                    <h2>Adicionar música</h2>
-                    <input placeholder='Música'></input>
+                    <h2>Minhas Playlists:</h2>
+                    <li> Playlist 1</li>
                     <br />
-                    <input placeholder='Artista'></input>
-                    <br />
-                    <input placeholder='Link da Música'></input>
-                    <br />
-                    <button>Inserir</button>
+                    <button>Voltar</button>
                 </ContainerPrincipal>
             </div>
         )
     }
 }
 
-export default AddMusic;
+export default Playlist;
