@@ -1,4 +1,3 @@
-
 import React from 'react';
 import LogoSpotify from './Components/Images/spotify.png';
 import LogoInstagram from './Components/Images/instagram.png';
@@ -13,7 +12,6 @@ const LogoHeader = styled.img`
   margin: 0;
   padding-top: 1%;
   `
-
 const LogoFooter = styled.img`
   width: 2vw;
   display: flex;
@@ -30,28 +28,20 @@ const Headers = styled.header`
   background-color: #C4C4C4;
   font-family: "Lucida Console";
   font-size: 30px;
- `;
-
+`
 const Footers = styled.header`
-  /* font-size: 30px; */
   padding: 1%;
   margin-top: 1%;
-  /* margin: 0; */
   background-color: #C4C4C4;
   color: whitesmoke;
-  /* position: absolute; */
   display: flex;
   justify-content: center;
-  /* width: 99.1%; */
-`;
+`
 
 const TituloCentral = styled.h2`
   font-size: 30px;
   padding-top: 50px;
-  /* display: grid;
-  justify-items: center; */
 `
-
 const ButtonsContainer = styled.button`
   width: 4%;
   padding: 1%;
@@ -65,34 +55,68 @@ const ContainerPrincipal = styled.div`
   justify-content: center;
   align-items: center;
   height: 70vh;
-  `
-function App() {
-  return (
-    <div>
-      <Headers>
-        <LogoHeader src={LogoSpotify} alt='logo spotify'></LogoHeader>
-        <strong>Labefy</strong>
-      </Headers>
-      <ContainerPrincipal>
-        <TituloCentral>Seja Bem Vindo(a)!</TituloCentral>
-        <h4>Crie uma nova Playlist:</h4>
-        <div>
-          <input placeholder='Nome da Playlist'></input>
-          <button>Salvar</button>
-          <br />
-        </div>
-        <h4>Visualizar as playlist criadas:</h4>
-        <ButtonsContainer>Clique aqui!</ButtonsContainer>
-      </ContainerPrincipal>
-      <Footers>
-        <LogoFooter src={LogoInstagram} alt='logo instagram'></LogoFooter>
-        <LogoFooter src={LogoFacebook} alt='logo instagram'></LogoFooter>
-        <LogoFooter src={LogoTwitter} alt='logo instagram'></LogoFooter>
-      </Footers>
-      <Playlist />
-      <AddMusic />
-    </div>
-  )
+`
+class App extends React.Component {
+
+    state = {
+        tela: 'playlist'
+    }
+
+    // mudarTela = (nomeTela) =>{
+    //     this.setState({tela: nomeTela})
+    // }
+
+    escolherTela = () => {
+        if(this.state.tela === 'addMusic'){
+            this.setState({tela: 'playlist'});
+        }else{
+            this.setState({tela: 'home'});
+        }
+    };
+        
+        // switch (this.state.tela) {
+        //     case 'home':
+        //         return < App mudarTela={this.mudarTela}/>
+        //     case 'musica':
+        //         return <AddMusic mudarTela={this.mudarTela}/>
+        //     case 'playlist':
+        //         return <Playlist mudarTela={this.mudarTela}/>
+        //     default:
+        //         return <Playlist mudarTela={this.mudarTela}/>
+        // }
+    // }
+
+    render() {
+
+        return (
+            <div>
+                <Headers>
+                    <LogoHeader src={LogoSpotify} alt='logo spotify'></LogoHeader>
+                    <strong>Labefy</strong>
+                </Headers>
+                <ContainerPrincipal>
+                    <TituloCentral>Seja Bem Vindo(a)!</TituloCentral>
+                    <h4>Crie uma nova Playlist:</h4>
+                    <div>
+                        <input
+                            placeholder='Nome da Playlist'
+                            value={this.name}
+                            onChange={this.NewName}
+                        ></input>
+                        <button onClick={()=>this.mudarTela('playlist')}>Salvar</button>
+                        <br />
+                    </div>
+                    <h4>Visualizar as playlist criadas:</h4>
+                    <ButtonsContainer onClick={()=>this.mudarTela('playlist')}>Clique aqui!</ButtonsContainer>
+                </ContainerPrincipal>
+                <Footers>
+                    <LogoFooter src={LogoInstagram} alt='logo instagram'></LogoFooter>
+                    <LogoFooter src={LogoFacebook} alt='logo instagram'></LogoFooter>
+                    <LogoFooter src={LogoTwitter} alt='logo instagram'></LogoFooter>
+                </Footers>
+            </div>
+        )
+    }
 }
 
 export default App;
