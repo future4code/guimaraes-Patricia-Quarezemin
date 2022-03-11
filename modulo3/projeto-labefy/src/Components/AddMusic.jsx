@@ -7,7 +7,7 @@ const LogoHeader = styled.img`
   width: 5vw;
   margin: 0;
   padding-top: 1%;
-  `
+`
 
 const Headers = styled.header`
     color: black;

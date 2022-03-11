@@ -43,7 +43,7 @@ const TituloCentral = styled.h2`
   padding-top: 50px;
 `
 const ButtonsContainer = styled.button`
-  width: 4%;
+  width: 5%;
   padding: 1%;
   margin-bottom: 2%;
   border-radius: 20%;
@@ -58,65 +58,61 @@ const ContainerPrincipal = styled.div`
 `
 class App extends React.Component {
 
-    state = {
-        tela: 'playlist'
+  state = {
+    tela: 'playlist'
+  }
+
+  mudarTela = (nomeTela) =>{
+      this.setState({tela: nomeTela})
+  }
+
+  escolherTela = () => {
+    switch (this.state.tela) {
+      case 'home':
+        return < App mudarTela={this.mudarTela} />
+      case 'musica':
+        return <AddMusic mudarTela={this.mudarTela} />
+      // case 'playlist':
+      //   return <Playlist mudarTela={this.mudarTela} />
+      default:
+        return <Playlist mudarTela={this.mudarTela} />
     }
+  };
 
-    // mudarTela = (nomeTela) =>{
-    //     this.setState({tela: nomeTela})
-    // }
 
-    escolherTela = () => {
-        if(this.state.tela === 'addMusic'){
-            this.setState({tela: 'playlist'});
-        }else{
-            this.setState({tela: 'home'});
-        }
-    };
-        
-        // switch (this.state.tela) {
-        //     case 'home':
-        //         return < App mudarTela={this.mudarTela}/>
-        //     case 'musica':
-        //         return <AddMusic mudarTela={this.mudarTela}/>
-        //     case 'playlist':
-        //         return <Playlist mudarTela={this.mudarTela}/>
-        //     default:
-        //         return <Playlist mudarTela={this.mudarTela}/>
-        // }
-    // }
+  render() {
 
-    render() {
-
-        return (
-            <div>
-                <Headers>
-                    <LogoHeader src={LogoSpotify} alt='logo spotify'></LogoHeader>
-                    <strong>Labefy</strong>
-                </Headers>
-                <ContainerPrincipal>
-                    <TituloCentral>Seja Bem Vindo(a)!</TituloCentral>
-                    <h4>Crie uma nova Playlist:</h4>
-                    <div>
-                        <input
-                            placeholder='Nome da Playlist'
-                            value={this.name}
-                            onChange={this.NewName}
-                        ></input>
-                        <button onClick={()=>this.mudarTela('playlist')}>Salvar</button>
-                        <br />
-                    </div>
-                    <h4>Visualizar as playlist criadas:</h4>
-                    <ButtonsContainer onClick={()=>this.mudarTela('playlist')}>Clique aqui!</ButtonsContainer>
-                </ContainerPrincipal>
-                <Footers>
-                    <LogoFooter src={LogoInstagram} alt='logo instagram'></LogoFooter>
-                    <LogoFooter src={LogoFacebook} alt='logo instagram'></LogoFooter>
-                    <LogoFooter src={LogoTwitter} alt='logo instagram'></LogoFooter>
-                </Footers>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <Headers>
+          <LogoHeader src={LogoSpotify} alt='logo spotify'></LogoHeader>
+          <strong>Labefy</strong>
+        </Headers>
+        <ContainerPrincipal>
+          <TituloCentral>Seja Bem Vindo(a)!</TituloCentral>
+          <h4>Crie uma nova Playlist:</h4>
+          <div>
+            <input
+              placeholder='Nome da Playlist'
+              value={this.name}
+              onChange={this.NewName}
+            ></input>
+            <button onClick={() => this.mudarTela('playlist')}>Salvar</button>
+            <br />
+          </div>
+          <h4>Visualizar as playlist criadas:</h4>
+          <ButtonsContainer onClick={() => this.mudarTela('playlist')}>Clique aqui!</ButtonsContainer>
+        </ContainerPrincipal>
+        <Footers>
+          <LogoFooter src={LogoInstagram} alt='logo instagram'></LogoFooter>
+          <LogoFooter src={LogoFacebook} alt='logo instagram'></LogoFooter>
+          <LogoFooter src={LogoTwitter} alt='logo instagram'></LogoFooter>
+        </Footers>
+        {/* <AddMusic />
+        <Playlist /> */}
+      </div>
+    )
+  }
 }
 
 export default App;
