@@ -108,8 +108,8 @@ class App extends React.Component {
           <LogoFooter src={LogoFacebook} alt='logo instagram'></LogoFooter>
           <LogoFooter src={LogoTwitter} alt='logo instagram'></LogoFooter>
         </Footers>
-        {/* <AddMusic />
-        <Playlist /> */}
+        <AddMusic />
+        <Playlist />
       </div>
     )
   }
