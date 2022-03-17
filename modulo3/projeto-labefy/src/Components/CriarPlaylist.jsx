@@ -8,7 +8,7 @@ const CriarPlaylistContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  height: 90vh;
 `
 const TituloCentral = styled.h2`
   font-size: 30px;
