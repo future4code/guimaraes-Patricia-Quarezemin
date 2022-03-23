@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Ribamar from '../Images/ribamar.jpg';
+import axios from 'axios';
+import {useState, useEffect} from 'react';
 
 const MainContainer = styled.div`
     padding: 20px;
@@ -15,6 +17,28 @@ const FotoCapa = styled.img`
     border-radius: 10px;
 `
 function Main() {
+
+    // const [profile, setProfile] = useState({})
+
+    // getProfileToChoose(()=>{
+    //     axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:patricia/person')
+    //     .then((response)=>{
+    //         setProfile(response.data.profile)
+    //     })
+    //     .catch((error)=>{
+    //         console.log(error.message)
+    //     })
+    // })
+
+    // useEffect(()=>{
+    //     getProfileToChoose()
+    // }, [])
+
+    // const onClickMatch = () =>{
+    //     const body = {
+
+    //     }
+    // }
     return (
         <MainContainer>
             <FotoCapa src={Ribamar} alt='Ribamar'></FotoCapa>

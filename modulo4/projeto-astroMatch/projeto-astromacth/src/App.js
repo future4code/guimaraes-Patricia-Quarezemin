@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from '././Components/Header/Header.jsx';
 import Main from '././Components/Main/Main.jsx';
 import Footer from '././Components/Footer/Footer.jsx';
+import Matches from './Components/Matches/Matches.jsx';
 
 const MainContainer = styled.div`
   background-color: #e7e7e7;
@@ -14,7 +15,6 @@ const MainContainer = styled.div`
 const ContainerPrincipal = styled.div`
   display: flex;
   flex-direction: column;
-  /* text-indent: 50px; */
   border: 1px solid black; 
   height: 82vh;
   width: 30vw;
@@ -50,7 +50,8 @@ function App() {
           </DivFooter>
         </ContainerPrincipal>
       </MainContainer>
-       <InputButton placeholder='Limpar swipes e matches'></InputButton>
+      <InputButton placeholder='Limpar swipes e matches'></InputButton>
+      <Matches />
     </div>
   );
 }
