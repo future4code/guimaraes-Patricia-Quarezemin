@@ -19,12 +19,13 @@ const LogoHeader = styled.img`
     margin: 0;
     padding-top: 2%;
 `
-function Header (){
+function Header (props){
+
     return(
         <Headers>
             <P>p</P>
             <LogoHeader src={PageTitle} alt='logo página inicial'></LogoHeader>
-            <LogoHeader src={DoubleMatch} alt='double match'></LogoHeader>
+            <LogoHeader onClick={()=>props.mudarTela()}src={DoubleMatch} alt='double match'></LogoHeader>
         </Headers>
     )
 }
