@@ -10,10 +10,15 @@ body {
     font-family: 'BIZ UDGothic', sans-serif;
     background-image: url('./Images/space.jpg');
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     width: 100vw;
     color: white;
+}
+
+header {
+    border-bottom: 1px solid pink;
+}
+
+footer {
+    border-block-end: 1px solid white;
 }
