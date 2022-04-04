@@ -12,7 +12,7 @@ const DivHeader = styled.div`
     border-bottom: 1px solid pink;
     height: 5vh;
     color: pink;
-    padding-left: 10px;
+    padding: 10px;
 `
 const Main = styled.div`
     height: 90vh;
@@ -39,15 +39,13 @@ const HomePage = () => {
     return (
         <MainContainer>
             <DivHeader>
-            <h2>LabeX</h2>
+                <h2>LabeX</h2>
             </DivHeader>
             <Main>
-                <button onClick={goToListsTrip}>Ver Viagens</button>
+                <button onClick={goToListsTrip}>'Ao infinito ... e além!'</button>
                 <button onClick={goToLoginPage}>Área Administrativa</button>
             </Main>
-            <DivFooter>
-
-            </DivFooter>
+            <DivFooter />
         </MainContainer>
     )
 }
