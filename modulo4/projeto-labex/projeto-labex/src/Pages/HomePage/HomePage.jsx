@@ -1,5 +1,29 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
+import BackgroundImage from '../../Images/space.jpg'
+
+const MainContainer = styled.div`
+    background-image: url(${BackgroundImage});
+    height: 100vh;
+    width: 100vw;
+`
+const DivHeader = styled.div`
+    border-bottom: 1px solid pink;
+    height: 5vh;
+    color: pink;
+    padding-left: 10px;
+`
+const Main = styled.div`
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+const DivFooter = styled.div`
+    border-top: 1px solid pink;
+    height: 5vh;
+`
 
 const HomePage = () => {
 
@@ -13,11 +37,18 @@ const HomePage = () => {
         navigate('/trips/list')
     }
     return (
-        <div>
-            <p>Home Page</p>
-            <button onClick={goToLoginPage}>Área Administrativa</button>
-            <button onClick={goToListsTrip}>Lista de Viagens</button>
-        </div>
+        <MainContainer>
+            <DivHeader>
+            <h2>LabeX</h2>
+            </DivHeader>
+            <Main>
+                <button onClick={goToListsTrip}>Ver Viagens</button>
+                <button onClick={goToLoginPage}>Área Administrativa</button>
+            </Main>
+            <DivFooter>
+
+            </DivFooter>
+        </MainContainer>
     )
 }
 export default HomePage
