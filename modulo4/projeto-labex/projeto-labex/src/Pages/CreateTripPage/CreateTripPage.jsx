@@ -38,7 +38,7 @@ const CreateTripPage = () => {
     }
 
     const goToAdminHomePage = () => {
-        navigate('admin/trips/:id')
+        navigate('/admin/trips/:id')
     }
     return (
         <MainContainer>

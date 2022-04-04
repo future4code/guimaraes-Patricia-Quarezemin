@@ -31,14 +31,14 @@ const AdminHomePage = () => {
 
     const navigate = useNavigate()
 
-    const goToListTrips = () => {
-        navigate('/trips/list')
+    const goToPageHome = () => {
+        navigate('/')
     }
     return (
         <MainContainer>
             <DivHeader>
                 <h2>LabeX</h2>
-                <button onClick={goToListTrips}>Home</button>
+                <button onClick={goToPageHome}>Home</button>
             </DivHeader>
             <Main>
 

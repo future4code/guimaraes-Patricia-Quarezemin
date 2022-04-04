@@ -35,7 +35,7 @@ const TripDetailsPage = () => {
     }
 
     const goToCreateTripPage = () => {
-        navigate('admin/trips/create')
+        navigate('/admin/trips/create')
     }
     return (
         <MainContainer>
