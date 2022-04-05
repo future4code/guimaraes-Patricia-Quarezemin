@@ -1,7 +1,9 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import BackgroundImage from '../../Images/space.jpg'
+import useProtectedPage from '../../Routes/useProtectedPage'
 
 const MainContainer = styled.div`
     background-image: url(${BackgroundImage});
@@ -27,6 +29,23 @@ const DivFooter = styled.div`
     height: 5vh;
 `
 const TripDetailsPage = () => {
+    useProtectedPage()
+
+    useEffect (() =>{
+        const token = localStorage.getItem('token')
+
+        // axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin-guimaraes/trip/:id?aluno=patricia-quarezemin-guimaraes'), {
+        // headers: {
+        //     auth: token
+        // }
+        // }
+        // .then((res) =>{
+        //     console.log(res.data.trip)
+        // })
+        // .catch((err) =>{
+        //     console.log(err.data.message)
+        // }, [])
+    })
 
     const navigate = useNavigate()
 
