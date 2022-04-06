@@ -31,22 +31,20 @@ const DivFooter = styled.div`
 const TripDetailsPage = () => {
     useProtectedPage()
 
-    useEffect (() =>{
+    useEffect(() => {
         const token = localStorage.getItem('token')
-
-        // axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin-guimaraes/trip/:id?aluno=patricia-quarezemin-guimaraes'), {
-        // headers: {
-        //     auth: token
-        // }
-        // }
-        // .then((res) =>{
-        //     console.log(res.data.trip)
-        // })
-        // .catch((err) =>{
-        //     console.log(err.data.message)
-        // }, [])
-    })
-
+        const id = localStorage.getItem('id')
+    
+        axios
+          .get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin-guimaraes/trip/${id}`, {
+            headers: {
+              auth: token
+            }
+          })
+          .then(res => console.log(res.data.trip))
+          .catch(err => console.log(err.response))
+      }, [])
+      
     const navigate = useNavigate()
 
     const goToHomePage = () => {

@@ -37,7 +37,7 @@ const LoginPage = () => {
     const [senha, setSenha] = useState('')
 
     const emailUser = (event) => {
-        setEmail(event.targe.value)
+        setEmail(event.target.value)
     }
 
     const passwordUser = (event) => {
@@ -55,19 +55,19 @@ const LoginPage = () => {
 
         const body = {
             email: email,
-            senha: senha
+            password: senha
         }
 
         axios
-        .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin-guimaraes/login', body)
-        .then((res)=>{
-            console.log('Deu certo!', res.data.token)
-            localStorage.setItem('token', res.data.token)
-            navigate('/admin/trips/:id')
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
+            .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin-guimaraes/login', body)
+            .then((res) => {
+                console.log('Deu certo!', res.data.token)
+                localStorage.setItem('token', res.data.token)
+                navigate('/admin/trips/:id')
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
     }
     return (
         <MainContainer>
@@ -78,7 +78,7 @@ const LoginPage = () => {
             <Main>
                 <h2>LOGIN</h2>
                 <input placeholder='E-mail' value={email} onChange={emailUser}></input>
-                <input placeholder='Senha' value={senha} onChange={passwordUser}></input>
+                <input placeholder='Senha' value={senha} onChange={passwordUser} type={'password'}></input>
                 <br></br>
                 <button onClick={login}>Entrar!</button>
             </Main>
