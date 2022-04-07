@@ -1,7 +1,9 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import BackgroundImage from '../../Images/space.jpg'
+import useProtectedPage from '../../Routes/useProtectedPage'
 
 const MainContainer = styled.div`
     background-image: url(${BackgroundImage});
@@ -30,6 +32,29 @@ const DivFooter = styled.div`
 `
 
 const CreateTripPage = () => {
+    useProtectedPage()
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+
+        const body = {
+            name: '',
+            planet: '',
+            date: '',
+            description: '',
+            durationInDays: ''
+        }
+
+        const headers = {
+            auth: token
+        }
+
+        axios
+            .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin-guimaraes/trips', body, headers)
+            
+                .then(res => console.log(res.data.trip))
+                .catch(err => console.log(err.response))
+    })
 
     const navigate = useNavigate()
 
@@ -48,16 +73,16 @@ const CreateTripPage = () => {
                 <button onClick={goToHomePage}>Home</button>
             </DivHeader>
             <Main>
-            <h2>Crie uma viagem:</h2>
-            <h4>Nome:</h4>
-            <input placeholder='Nome'/>
-            <h4>Planeta:</h4>
-            <select placeholder='Escolha'/>
-            <h4>Data (dias):</h4>
-            <h4>Descrição:</h4>
-            <input placeholder='Descrição'/>
-            <h4>Duração (dias):</h4>
-            <button>Criar Viagem</button>
+                <h2>Crie uma viagem:</h2>
+                <h4>Nome:</h4>
+                <input placeholder='Nome' />
+                <h4>Planeta:</h4>
+                <select placeholder='Escolha' />
+                <h4>Data (dias):</h4>
+                <h4>Descrição:</h4>
+                <input placeholder='Descrição' />
+                <h4>Duração (dias):</h4>
+                <button>Criar Viagem</button>
             </Main>
             <DivFooter />
         </MainContainer>

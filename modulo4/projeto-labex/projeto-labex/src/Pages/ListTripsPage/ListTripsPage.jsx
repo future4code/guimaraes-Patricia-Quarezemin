@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import BackgroundImage from '../../Images/space.jpg'
+import axios from 'axios'
+import { useState } from 'react'
 
 const MainContainer = styled.div`
     background-image: url(${BackgroundImage});
@@ -29,6 +31,13 @@ const DivFooter = styled.div`
 
 const ListTripsPage = () => {
 
+    const [trips, setTrips] = useState([])
+
+    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin/trips')
+        .then(res => setTrips(res.data))
+        .catch(err => console.log(err.response))
+
+
     const navigate = useNavigate()
 
     const goToHomePage = () => {
@@ -38,6 +47,9 @@ const ListTripsPage = () => {
         <MainContainer>
             <DivHeader>
                 <h2>LabeX</h2>
+                {trips.map((trip) => {
+                    return <li key={trip}>{trip.name}</li>
+                })}
                 <button onClick={goToHomePage}>Home</button>
             </DivHeader>
             <Main>

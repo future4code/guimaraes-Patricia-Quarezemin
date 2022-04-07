@@ -30,6 +30,7 @@ const DivFooter = styled.div`
 `
 const ApplicationFormPage = () => {
 
+
     const navigate = useNavigate()
 
     const goToHomePage = () => {
