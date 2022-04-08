@@ -2,69 +2,20 @@
 
 Este projeto foi iniciado com [Create React App]
 
-## Available Scripts
+📄 Sobre
 
-In the project directory, you can run:
+Link surge: https://meek-sock.surge.sh/
 
-### `npm start`
+O LabeX é um projeto que tem como objetivo criar uma plataforma de gerenciamento de viagens espaciais, com duas partes: uma pública e uma privada. E, por meio das requsições da API que me foi fornecida, pude implementar os comandos! A lista de viagens aparece renderizada na tela e, o candidato pode escolher 1 delas preenchendo um formulário. Após isso, temos as páginas privadas, nas quais o Adm quem decide qual candidato irá na viagem e, também pode criar uma viagem ou deletar!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🛠 Tecnologias
+HTML
+CSS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+👩‍💻 Desenvolvedora
+Patrícia Quarezemin
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![image](https://user-images.githubusercontent.com/93095117/162547094-4e6ee954-8ef4-4f1e-be9f-6a110ecf1b27.png)
+![image](https://user-images.githubusercontent.com/93095117/162547131-cfeb1453-2e27-4a30-a1f7-6c151894d7d8.png)
+![image](https://user-images.githubusercontent.com/93095117/162547148-dd5115c9-f7c8-4da0-9158-5af1e69a5b79.png)
+![image](https://user-images.githubusercontent.com/93095117/162547158-92295b3b-a233-4d17-93f4-9a95604b474e.png)
