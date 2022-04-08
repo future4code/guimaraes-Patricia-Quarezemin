@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import BackgroundImage from '../../Images/space.jpg'
@@ -20,40 +20,76 @@ const DivHeader = styled.div`
 `
 const Main = styled.div`
     height: 90vh;
-    display: flex; //talvez aqui tenha que fazer um grid para colocar as viagens
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+`
+
+const CardsTravel = styled.li`
+    border: 2px solid pink;
+    border-radius: 2%;
+    color: blueviolet;
+    background-color: whitesmoke;
+    padding: 10px 0px;
+    box-shadow: 0px 0px 5px #06d974;
+    width: 300px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
 `
 const DivFooter = styled.div`
     border-top: 1px solid pink;
     height: 5vh;
 `
 
-const ListTripsPage = () => {
+const ListTripsPage = (props) => {
 
-    const [trips, setTrips] = useState([])
+    const [listTrips, setListTrips] = useState([])
 
-    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin/trips')
-        .then(res => setTrips(res.data))
-        .catch(err => console.log(err.response))
+    useEffect(() => {
+        tripList()
+    }, [])
 
+    const tripList = () => {
+        axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin/trips')
+            .then(res => setListTrips(res.data.trips))
+            .catch(err => console.log(err.response))
+
+    }
 
     const navigate = useNavigate()
 
     const goToHomePage = () => {
         navigate('/')
     }
+
+    const goToFormPage = () => {
+        navigate('/trips/application')
+    }
+
+
     return (
         <MainContainer>
             <DivHeader>
                 <h2>LabeX</h2>
-                {trips.map((trip) => {
-                    return <li key={trip}>{trip.name}</li>
-                })}
                 <button onClick={goToHomePage}>Home</button>
             </DivHeader>
-            <Main>
 
+            <Main>
+                <button onClick={goToFormPage}>Inscrever-se</button>
+                <br />
+                {listTrips.map((trip) => {
+                    return <CardsTravel>
+                        {trip.name}
+                        <br />{trip.description}
+                        <br />
+                        Planeta:{trip.planet}
+                        <br />
+                        Duração:{trip.durationInDays} dias
+                        <br />
+                        Data:{trip.date}
+                    </CardsTravel>
+                })}
             </Main>
             <DivFooter />
         </MainContainer>

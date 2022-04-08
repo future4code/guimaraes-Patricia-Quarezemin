@@ -62,7 +62,9 @@ const TripDetailsPage = () => {
                 <button onClick={goToHomePage}>Home</button>
             </DivHeader>
            <Main>
-
+           {/* {listTrips.map((trip) =>{
+               return <li>{trip.id}</li>
+           })} */}
            </Main>
            <DivFooter />
         </MainContainer>
