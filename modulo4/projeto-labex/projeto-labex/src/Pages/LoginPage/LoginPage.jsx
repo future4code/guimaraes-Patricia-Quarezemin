@@ -7,8 +7,8 @@ import axios from 'axios'
 
 const MainContainer = styled.div`
 background-image: url(${BackgroundImage});
-height: 100vh;
-width: 100vw;
+background-repeat: no-repeat;
+background-size: cover;
 `
 const DivHeader = styled.div`
 border-bottom: 1px solid pink;

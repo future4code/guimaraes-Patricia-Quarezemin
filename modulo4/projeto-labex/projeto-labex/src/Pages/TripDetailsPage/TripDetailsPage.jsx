@@ -3,12 +3,12 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import BackgroundImage from '../../Images/space.jpg'
-import useProtectedPage from '../../Routes/useProtectedPage'
+import useProtectedPage from '../../Hooks/useProtectedPage'
 
 const MainContainer = styled.div`
     background-image: url(${BackgroundImage});
-    height: 100vh;
-    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
 `
 const DivHeader = styled.div`
     border-bottom: 1px solid pink;

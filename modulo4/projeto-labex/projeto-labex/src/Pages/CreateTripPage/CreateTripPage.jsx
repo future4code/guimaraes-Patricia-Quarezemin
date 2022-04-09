@@ -3,12 +3,12 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import BackgroundImage from '../../Images/space.jpg'
-import useProtectedPage from '../../Routes/useProtectedPage'
+import useProtectedPage from '../../Hooks/useProtectedPage'
 
 const MainContainer = styled.div`
     background-image: url(${BackgroundImage});
-    height: 100vh;
-    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
 `
 const DivHeader = styled.div`
     border-bottom: 1px solid pink;
@@ -34,6 +34,9 @@ const DivFooter = styled.div`
 const CreateTripPage = () => {
     useProtectedPage()
 
+    const criarViagem = (e) => {
+        e.preventDefault()
+    }
     useEffect(() => {
         const token = localStorage.getItem('token')
 
@@ -51,9 +54,9 @@ const CreateTripPage = () => {
 
         axios
             .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/patricia-quarezemin-guimaraes/trips', body, headers)
-            
-                .then(res => console.log(res.data.trip))
-                .catch(err => console.log(err.response))
+
+            .then(res => console.log(res.data.trip))
+            .catch(err => console.log(err.response))
     })
 
     const navigate = useNavigate()
@@ -66,26 +69,71 @@ const CreateTripPage = () => {
         navigate('/admin/trips/:id')
     }
     return (
-        <MainContainer>
-            <DivHeader>
-                <h2>LabeX</h2>
-                <button onClick={goToAdminHomePage}>Voltar para ADM</button>
-                <button onClick={goToHomePage}>Home</button>
-            </DivHeader>
-            <Main>
-                <h2>Crie uma viagem:</h2>
-                <h4>Nome:</h4>
-                <input placeholder='Nome' />
-                <h4>Planeta:</h4>
-                <select placeholder='Escolha' />
-                <h4>Data (dias):</h4>
-                <h4>Descrição:</h4>
-                <input placeholder='Descrição' />
-                <h4>Duração (dias):</h4>
-                <button>Criar Viagem</button>
-            </Main>
-            <DivFooter />
-        </MainContainer>
+        <form onSubmit={criarViagem}>
+            <MainContainer>
+                <DivHeader>
+                    <h2>LabeX</h2>
+                    <button onClick={goToAdminHomePage}>Voltar para ADM</button>
+                    <button onClick={goToHomePage}>Home</button>
+                </DivHeader>
+                <Main>
+                    <h2>Crie uma viagem:</h2>
+                    <label htmlFor={"name"}>
+                        Nome
+                    </label>
+                    <input
+                        id={"name"}
+                        // value={}
+                        placeholder={"Digite o seu nome"}
+                        // onChange={}
+                        pattern={"^.{5,}"}
+                        title={"O nome deve ter no mínimo 5 caracteres"}
+                        required
+                    />
+                    <label htmlFor={"planet"}>
+                        Planeta
+                    </label>
+                    <p><select required>
+                        <option />
+                        <option >Mercúrio</option>
+                        <option >Vênus</option>
+                        <option >Terra</option>
+                        <option >Marte</option>
+                        <option >Júpiter</option>
+                        <option >Saturno</option>
+                        <option >Urano</option>
+                        <option >Netuno</option>
+                        <option >Plutão</option>
+                    </select></p>
+                    <label htmlFor="date">Data (dias):</label>
+                    <p><input
+                        type="date"
+                        title={"Escolha uma data futura"}
+                        min={"01-01-2022"}
+                        id="date"
+                        name="date"
+                        // value={}
+                        // onChange={}
+                        required
+                    /></p>
+                    <label htmlFor="descricao">Descrição</label>
+                    <p><textarea
+                        type="text"
+                        id="descricao"
+                        name="description"
+                        // value={}
+                        // onChange={}
+                        placeholder="Descrição"
+                        required
+                        pattern={"^.{30,}"}
+                        title={"O texto deve ter no mínimo 30 letras"}
+                    /></p>
+
+                    <button>Criar Viagem</button>
+                </Main>
+                <DivFooter />
+            </MainContainer>
+        </form>
     )
 }
 export default CreateTripPage

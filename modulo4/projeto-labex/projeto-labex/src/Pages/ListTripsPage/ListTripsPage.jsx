@@ -7,8 +7,8 @@ import { useState } from 'react'
 
 const MainContainer = styled.div`
     background-image: url(${BackgroundImage});
-    height: 100vh;
-    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
 `
 const DivHeader = styled.div`
     border-bottom: 1px solid pink;
@@ -36,6 +36,7 @@ const CardsTravel = styled.li`
     width: 300px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bold;
+    margin-bottom: 20px;
 `
 const DivFooter = styled.div`
     border-top: 1px solid pink;

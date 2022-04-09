@@ -5,8 +5,8 @@ import BackgroundImage from '../../Images/space.jpg'
 
 const MainContainer = styled.div`
     background-image: url(${BackgroundImage});
-    height: 100vh;
-    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
 `
 const DivHeader = styled.div`
     border-bottom: 1px solid pink;
@@ -23,6 +23,19 @@ const Main = styled.div`
 const DivFooter = styled.div`
     border-top: 1px solid pink;
     height: 5vh;
+`
+const Buttons = styled.button`
+border-bottom-left-radius: 5px;
+border-top-left-radius: 5px;
+border-bottom-right-radius: 10px;
+border-top-right-radius: 10px;
+height: 7%;
+width: 15%;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-weight: bold;
+font-size: large;
+color: blueviolet;
+margin-right: 5px;
 `
 
 const HomePage = () => {
@@ -42,8 +55,8 @@ const HomePage = () => {
                 <h2>LabeX</h2>
             </DivHeader>
             <Main>
-                <button onClick={goToListsTrip}>'Ao infinito ... e além!'</button>
-                <button onClick={goToLoginPage}>Área Administrativa</button>
+                <Buttons onClick={goToListsTrip}><strong>'Ao infinito ... e além!'</strong></Buttons>
+                <Buttons onClick={goToLoginPage}>Área Administrativa</Buttons>
             </Main>
             <DivFooter />
         </MainContainer>
