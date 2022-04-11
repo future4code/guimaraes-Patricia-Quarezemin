@@ -33,7 +33,7 @@ height: 7%;
 width: 15%;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 font-weight: bold;
-font-size: large;
+font-size: medium;
 color: blueviolet;
 margin-right: 5px;
 `
