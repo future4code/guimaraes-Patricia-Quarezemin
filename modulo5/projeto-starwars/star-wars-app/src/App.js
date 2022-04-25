@@ -1,14 +1,10 @@
 import React from 'react'
-// import Router from './routes/Router'
-import CharacterDetailPage from './pages/CharacterDetailPage/CharacterDetailPage';
-import CharacterListPage from './pages/CharacterListPage/CharacterListPage';
+import Router from './routes/Router'
 
 const App = () => {
   return (
     <div>
-      {/* <Router /> */}
-      <CharacterDetailPage />
-      <CharacterListPage />
+      <Router />
     </div>
   );
 }
