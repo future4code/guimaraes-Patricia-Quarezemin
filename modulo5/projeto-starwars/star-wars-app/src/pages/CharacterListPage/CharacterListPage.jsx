@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { BASE_URL } from '../../constants/urls'
 
 const CharacterListPage = () => {
-
-    const [characterList, setCharacterList] = useState({})
+    const [characterList, setCharacterList] = useState([])
 
     useEffect(() => {
         getCharacterList()
@@ -16,13 +15,17 @@ const CharacterListPage = () => {
             .then((res) => setCharacterList(res.data.results))
             .catch((err) => console.log('Deu erro', err))
     }
-    console.log(characterList)
+
+    const characterCards = characterList.map((character, i) => {
+        return <li key={i}>{character.name}</li>
+    })
 
     return (
-        ( characterList.map((character, index) => {
-            return <li>{character.name}</li>
-        })
-}           
-
+        <div>
+            {characterCards}
+        </div>
+    )
+}
 
 export default CharacterListPage
+

@@ -1,5 +1,4 @@
-// import * as React from 'react';
-// import { createTheme } from '@material-ui/core/styles';
+// import { createTheme } from '@material-ui/core';
 // import { primaryColor, neutralColor } from './colors';
 
 // const theme = createTheme({
