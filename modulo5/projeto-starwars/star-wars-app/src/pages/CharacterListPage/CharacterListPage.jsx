@@ -17,7 +17,7 @@ const CharacterListPage = () => {
     }
 
     const characterCards = characterList.map((character, i) => {
-        return <li key={i}>{character.name}</li>
+        return <p key={i}>{character.name}</p>
     })
 
     return (
