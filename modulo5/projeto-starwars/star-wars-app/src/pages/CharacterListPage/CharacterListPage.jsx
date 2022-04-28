@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { BASE_URL } from '../../constants/urls'
 
+
 const CharacterListPage = () => {
     const [characterList, setCharacterList] = useState([])
 
@@ -18,6 +19,7 @@ const CharacterListPage = () => {
 
     const characterCards = characterList.map((character, i) => {
         return <p key={i}>{character.name}</p>
+        
     })
 
     return (
