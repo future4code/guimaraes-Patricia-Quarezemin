@@ -22,9 +22,10 @@ const CharacterListPage = () => {
         
     })
 
+    
     return (
         <div>
-            {characterCards}
+          {characterCards}
         </div>
     )
 }
