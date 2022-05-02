@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { BASE_URL } from '../../constants/urls'
 
+
 const CharacterDetailPage = () => {
 
     const [characterDetail, setcharacterDetail] = useState([])
