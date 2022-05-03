@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
-import {CharacterCard} from './styled'
+import { CharacterCard } from './styled'
 
 const CharacterListPage = () => {
     const [characterList, setCharacterList] = useState([])
@@ -17,8 +18,13 @@ const CharacterListPage = () => {
             .catch((err) => console.log('Deu erro', err))
     }
 
+    const navigate = useNavigate()
+
+    const goToDetailPage = (i) => {
+        navigate(`/detail-page/${i}`)
+    }
     const characterCards = characterList.map((character, i) => {
-        return <CharacterCard>
+        return <CharacterCard onClick={() => goToDetailPage(i+1)}>
             <p key={i}>{character.name}</p>
         </CharacterCard>
 

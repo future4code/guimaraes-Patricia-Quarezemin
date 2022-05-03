@@ -1,38 +1,33 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
 
 
 const CharacterDetailPage = () => {
 
-    const [characterDetail, setcharacterDetail] = useState([])
+    const [characterDetail, setCharacterDetail] = useState({})
 
-    useEffect(() => {
-        goToDetailPage()
+    useEffect(() =>{
+        getCharacterDetail()
     }, [])
 
-    const goToDetailPage = () => {
+    const params = useParams()
+    
+    const getCharacterDetail = () => {
         axios
-            .get(`${BASE_URL}/people`)
-            .then((res) => setcharacterDetail(characterDetail, res))
+            .get(`${BASE_URL}/people/${params.i}`)
+            .then((res) => setCharacterDetail(res.data.results))
             .catch((err) => console.log(err))
     }
-
-    const DetailCharacter = characterDetail.map((detail, i) => {
-        return <li key={i}>
-            {detail.name}
-            {detail.height}
-            {detail.mass}
-            {detail.hair_color}
-            {detail.skin_color}
-            {detail.eye_color}
-            {detail.birth_year}
-            {detail.gender}
-        </li>
+    
+    const characterListDetail = characterDetail.map((character, i) =>{
+        return <li>{character.name}</li>
     })
+
     return (
         <div>
-            {DetailCharacter}
+            {characterListDetail}
         </div>
     )
 }

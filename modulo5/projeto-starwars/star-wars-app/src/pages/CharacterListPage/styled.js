@@ -11,9 +11,8 @@ import styled from 'styled-components'
 
 export const CharacterCard = styled.button`
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-grid-gap: 16px;
-
+grid-auto-columns: 100px;
+grid-template-columns: repeat(2, 100px);
 `
    
 

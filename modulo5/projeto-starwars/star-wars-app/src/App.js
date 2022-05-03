@@ -7,9 +7,9 @@ const App = () => {
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}> */}
         <Router />
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </div>
   );
 }
