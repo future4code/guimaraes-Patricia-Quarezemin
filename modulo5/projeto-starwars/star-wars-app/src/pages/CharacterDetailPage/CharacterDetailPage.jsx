@@ -6,28 +6,34 @@ import { BASE_URL } from '../../constants/urls'
 
 const CharacterDetailPage = () => {
 
-    const [characterDetail, setCharacterDetail] = useState({})
+    const [characterDetail, setCharacterDetail] = useState([])
+    console.log(characterDetail)
+    console.log(characterDetail.name)
 
-    useEffect(() =>{
+    useEffect(() => {
         getCharacterDetail()
     }, [])
 
     const params = useParams()
-    
+
     const getCharacterDetail = () => {
         axios
             .get(`${BASE_URL}/people/${params.i}`)
-            .then((res) => setCharacterDetail(res.data.results))
+            .then((res) => setCharacterDetail(res.data))
             .catch((err) => console.log(err))
     }
-    
-    const characterListDetail = characterDetail.map((character, i) =>{
-        return <li>{character.name}</li>
-    })
+
+    // const characterListDetail = characterDetail.map((character, i) =>{
+    //     return <p key={i}>{character.name}</p>
+    // })
 
     return (
         <div>
-            {characterListDetail}
+            <p> Nome: {characterDetail.name}</p>
+
+            <p> Idade: {characterDetail.height}</p>
+
+
         </div>
     )
 }
