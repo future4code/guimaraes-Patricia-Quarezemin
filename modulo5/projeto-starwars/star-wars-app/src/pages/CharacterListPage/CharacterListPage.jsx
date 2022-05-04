@@ -5,11 +5,13 @@ import { BASE_URL } from '../../constants/urls'
 import { CharacterCard } from './styled'
 import BackgroundImage from '../../assets/Images/star-wars-background.png'
 import styled from 'styled-components'
+import { LetterText } from '../CharacterDetailPage/styled'
 
 const MainContainer = styled.div`
     background-image: url(${BackgroundImage});
     background-repeat: no-repeat;
-    background-size: cover;
+    width: 100vw;
+    height: 100vh;
 `
 
 const CharacterListPage = () => {
@@ -31,9 +33,10 @@ const CharacterListPage = () => {
     const goToDetailPage = (i) => {
         navigate(`/detail-page/${i}`)
     }
+
     const characterCards = characterList.map((character, i) => {
         return <CharacterCard onClick={() => goToDetailPage(i+1)}>
-            <p key={i}>{character.name}</p>
+            <LetterText key={i}>{character.name}</LetterText>
         </CharacterCard>
 
     })

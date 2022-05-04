@@ -4,12 +4,12 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
 import BackgroundImage from '../../assets/Images/star-wars-background.png'
 import styled from 'styled-components'
-import { LetterText } from './styled'
+// import { LetterText } from './styled'
 
 const MainContainer = styled.div`
     background-image: url(${BackgroundImage});
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
 `
 const CharacterDetailPage = () => {
 
@@ -53,8 +53,8 @@ const CharacterDetailPage = () => {
     return (
         <MainContainer>
             <button onClick={goToCharacterList}>Lista de Personagens</button>
-            <LetterText> Nome: {characterDetail.name}</LetterText>
-            <LetterText> Idade: {characterDetail.height}</LetterText>
+            <p> Nome: {characterDetail.name}</p>
+            <p> Idade: {characterDetail.height}</p>
             {/* <p> Planeta de origem: {planet.homeworld}</p> */}
         </MainContainer>
     )
