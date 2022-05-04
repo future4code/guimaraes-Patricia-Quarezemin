@@ -3,6 +3,14 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
 import { CharacterCard } from './styled'
+import BackgroundImage from '../../assets/Images/star-wars-background.png'
+import styled from 'styled-components'
+
+const MainContainer = styled.div`
+    background-image: url(${BackgroundImage});
+    background-repeat: no-repeat;
+    background-size: cover;
+`
 
 const CharacterListPage = () => {
     const [characterList, setCharacterList] = useState([])
@@ -30,10 +38,10 @@ const CharacterListPage = () => {
 
     })
     return (
-        <div>
+        <MainContainer>
             <h2>Lista de Personagens</h2>
             {characterCards}
-        </div>
+        </MainContainer>
     )
 }
 

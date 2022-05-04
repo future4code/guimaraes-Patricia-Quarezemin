@@ -14,5 +14,9 @@ display: grid;
 grid-auto-columns: 100px;
 grid-template-columns: repeat(2, 100px);
 `
+export const LetterText = styled.p`
+color: yellow
+`
+
    
 
