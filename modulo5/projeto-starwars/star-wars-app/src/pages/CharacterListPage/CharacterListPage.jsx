@@ -2,17 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
-import { CharacterCard } from './styled'
-import BackgroundImage from '../../assets/Images/star-wars-background.png'
-import styled from 'styled-components'
-import { LetterText } from '../CharacterDetailPage/styled'
-
-const MainContainer = styled.div`
-    background-image: url(${BackgroundImage});
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-`
+import { MainContainer, CharacterCard, CardsDiv, ButtonHome } from './styled'
 
 const CharacterListPage = () => {
     const [characterList, setCharacterList] = useState([])
@@ -34,15 +24,23 @@ const CharacterListPage = () => {
         navigate(`/detail-page/${i}`)
     }
 
+    const goToHomePage = () => {
+        navigate('/')
+    }
+
     const characterCards = characterList.map((character, i) => {
-        return <CharacterCard onClick={() => goToDetailPage(i+1)}>
-            <LetterText key={i}>{character.name}</LetterText>
-        </CharacterCard>
+        return <CardsDiv>
+            <CharacterCard onClick={() => goToDetailPage(i + 1)}>
+                <p key={i}>{character.name}</p>
+                <img src={`https://starwars-visualguide.com/assets/img/characters/${i+1}.jpg`}
+                width='180px' height='250px'></img>
+            </CharacterCard>
+        </CardsDiv>
 
     })
     return (
         <MainContainer>
-            <h2>Lista de Personagens</h2>
+            <ButtonHome onClick={goToHomePage}>Home</ButtonHome>
             {characterCards}
         </MainContainer>
     )
