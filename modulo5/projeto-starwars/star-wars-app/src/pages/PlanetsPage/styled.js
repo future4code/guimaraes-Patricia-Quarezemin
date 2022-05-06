@@ -7,8 +7,7 @@ export const MainContainer = styled.div`
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
 `
 export const ButtonHome = styled.button`
     display: flex;
@@ -38,3 +37,13 @@ export const PlanetCard = styled.button`
     height: 200px;
     width: 200px;
 `
+export const CardContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    margin: 5rem;
+    grid-row-gap: 2rem;
+    grid-column-gap: 1rem;
+    place-items: center;
+` 
+

@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
-import { MainContainer, ButtonCharacterList, CharacterCard } from './styled'
+import { MainContainer, ButtonCharacterList, CharacterCard, CardContainer, TextCard } from './styled'
 
 
 const CharacterDetailPage = () => {
@@ -47,10 +47,16 @@ const CharacterDetailPage = () => {
     return (
         <MainContainer>
             <ButtonCharacterList onClick={goToCharacterList}>Lista de Personagens</ButtonCharacterList>
-            <CharacterCard>
-                <p> Nome: {characterDetail.name}</p>
-                <p> Idade: {characterDetail.height}</p>
-            </CharacterCard>
+            <CardContainer>
+                <CharacterCard>
+                    <img src={`https://starwars-visualguide.com/assets/img/characters/1.jpg`}
+                        width='250px' height='350px'></img>
+                    <TextCard>
+                        <h3>{characterDetail.name}</h3>
+                        <h3> Idade: {characterDetail.height}</h3>
+                    </TextCard>
+                </CharacterCard>
+            </CardContainer>
         </MainContainer>
     )
 }

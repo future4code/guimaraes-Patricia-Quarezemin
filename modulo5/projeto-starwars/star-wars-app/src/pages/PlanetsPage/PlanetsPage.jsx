@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { MainContainer, ButtonHome, ButtonContainer, PlanetCard } from './styled'
+import { MainContainer, ButtonHome, ButtonContainer, PlanetCard, CardContainer } from './styled'
 import axios from 'axios'
 
 const PlanetsPage = () => {
@@ -28,7 +28,7 @@ const PlanetsPage = () => {
     }
 
     const planetList = planet.map((planet, i) => {
-        return <PlanetCard key={i}>{planet.name}</PlanetCard>
+        return <PlanetCard onClick={() => goToPlanetDetailPage(i+1)} key={i}>{planet.name}</PlanetCard>
     })
 
     return (
@@ -36,7 +36,10 @@ const PlanetsPage = () => {
             <ButtonContainer>
                 <ButtonHome onClick={goToHomePage}>Home</ButtonHome>
             </ButtonContainer>
+            <CardContainer>
             {planetList}
+            </CardContainer>
+            
 
         </MainContainer>
     )
