@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
-import { MainContainer, CharacterCard, CardsDiv, ButtonHome } from './styled'
+import { MainContainer, CharacterCard, CardsDiv, ButtonHome, CardContainer } from './styled'
 
 const CharacterListPage = () => {
     const [characterList, setCharacterList] = useState([])
@@ -32,8 +32,8 @@ const CharacterListPage = () => {
         return <CardsDiv>
             <CharacterCard onClick={() => goToDetailPage(i + 1)}>
                 <p key={i}>{character.name}</p>
-                <img src={`https://starwars-visualguide.com/assets/img/characters/${i+1}.jpg`}
-                width='180px' height='250px'></img>
+                <img src={`https://starwars-visualguide.com/assets/img/characters/${i + 1}.jpg`}
+                    width='180px' height='250px'></img>
             </CharacterCard>
         </CardsDiv>
 
@@ -41,7 +41,9 @@ const CharacterListPage = () => {
     return (
         <MainContainer>
             <ButtonHome onClick={goToHomePage}>Home</ButtonHome>
-            {characterCards}
+            <CardContainer>
+                {characterCards}
+            </CardContainer>
         </MainContainer>
     )
 }

@@ -2,15 +2,9 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { BASE_URL } from '../../constants/urls'
-import BackgroundImage from '../../assets/Images/star-wars-background.png'
-import styled from 'styled-components'
-// import { LetterText } from './styled'
+import { MainContainer, ButtonCharacterList, CharacterCard } from './styled'
 
-const MainContainer = styled.div`
-    background-image: url(${BackgroundImage});
-    background-repeat: no-repeat;
-    background-size: auto;
-`
+
 const CharacterDetailPage = () => {
 
     const [characterDetail, setCharacterDetail] = useState([])
@@ -52,10 +46,11 @@ const CharacterDetailPage = () => {
 
     return (
         <MainContainer>
-            <button onClick={goToCharacterList}>Lista de Personagens</button>
-            <p> Nome: {characterDetail.name}</p>
-            <p> Idade: {characterDetail.height}</p>
-            {/* <p> Planeta de origem: {planet.homeworld}</p> */}
+            <ButtonCharacterList onClick={goToCharacterList}>Lista de Personagens</ButtonCharacterList>
+            <CharacterCard>
+                <p> Nome: {characterDetail.name}</p>
+                <p> Idade: {characterDetail.height}</p>
+            </CharacterCard>
         </MainContainer>
     )
 }

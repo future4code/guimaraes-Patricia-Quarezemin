@@ -7,6 +7,9 @@ export const MainContainer = styled.div`
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
 `
 export const ButtonHome = styled.button`
     display: flex;
@@ -18,7 +21,6 @@ export const ButtonHome = styled.button`
     padding: 20px;
     align-items: center
 `
-
 export const CharacterCard = styled.button`
     background-color: #4E4B4B;
     font-size: large;
@@ -28,10 +30,17 @@ export const CharacterCard = styled.button`
 `
 export const CardsDiv = styled.div`
     display: inline-flex;
-    flex-grow: inherit;
-
        
-`
+` 
+export const CardContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    margin: 5rem;
+    grid-row-gap: 2rem;
+    grid-column-gap: 1rem;
+    place-items: center;
+` 
 
 
 
