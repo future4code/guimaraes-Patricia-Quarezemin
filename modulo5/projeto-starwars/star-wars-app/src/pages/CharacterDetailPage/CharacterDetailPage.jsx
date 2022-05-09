@@ -8,15 +8,15 @@ import { MainContainer, ButtonCharacterList, CharacterCard, CardContainer, TextC
 const CharacterDetailPage = () => {
 
     const [characterDetail, setCharacterDetail] = useState([])
-    // const [planet, setPlanet] = useState({})
+    const [planet, setPlanet] = useState([])
 
     useEffect(() => {
         getCharacterDetail()
     }, [])
 
-    // useEffect(() =>{
-    //     getPlanet()
-    // }, [])
+    useEffect(() =>{
+        getPlanet()
+    }, [])
 
     const params = useParams()
 
@@ -27,12 +27,12 @@ const CharacterDetailPage = () => {
             .catch((err) => console.log(err))
     }
 
-    // const getPlanet = () => {
-    //     axios
-    //     .get(`${BASE_URL}/people/${params.l}`)
-    //     .then((res) => setPlanet(res.data))
-    //     .catch((err) => console.log(err))
-    // }
+    const getPlanet = () => {
+        axios
+        .get(`${BASE_URL}/people/${params.l}`)
+        .then((res) => setPlanet(res.data))
+        .catch((err) => console.log(err))
+    }
 
     const navigate = useNavigate()
 
@@ -40,9 +40,9 @@ const CharacterDetailPage = () => {
         navigate('/list-page')
     }
 
-    // const characterListDetail = characterDetail.map((character, i) =>{
-    //     return <p key={i}>{character.name}</p>
-    // })
+    const characterListDetail = planet.map((character, i) =>{
+        return <p key={i}>{character.name}</p>
+    })
 
     return (
         <MainContainer>
@@ -53,7 +53,7 @@ const CharacterDetailPage = () => {
                         width='250px' height='350px'></img>
                     <TextCard>
                         <h3>{characterDetail.name}</h3>
-                        <h3> Idade: {characterDetail.height}</h3>
+                        <h3> Planeta de origem: {characterListDetail.homeworld}</h3>
                     </TextCard>
                 </CharacterCard>
             </CardContainer>
