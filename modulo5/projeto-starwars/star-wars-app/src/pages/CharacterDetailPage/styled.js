@@ -6,8 +6,6 @@ export const MainContainer = styled.div`
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
 `
 export const ButtonCharacterList = styled.button`
     display: flex;
@@ -31,14 +29,15 @@ export const CharacterCard = styled.div`
     background-color: #4E4B4B;
     font-size: large;
     color: #F8E00F;
-    margin: 7px 0 0;
+    margin: 200px;
     border-radius: 8px;
-    width: 500px;
-    height: 350px;
-    text-align: center;
+    width: 250px;
+    height: 250px;
+    text-align: flex-start;
     display: flex;
+    padding: 20px;
 `
 
 export const TextCard = styled.div`
-    display: block;
+    /* display: block; */
 `

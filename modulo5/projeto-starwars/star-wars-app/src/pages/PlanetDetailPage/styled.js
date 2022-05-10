@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    display: flex;
+        /* display: flex; */
 `
 export const ButtonHome = styled.button`
     display: flex;
@@ -21,15 +21,17 @@ export const ButtonHome = styled.button`
 `
 
 export const CardContainer = styled.div`
-    width: 500px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     background-color: #4E4B4B;
     border-radius: 8px;
+    padding: 20px;
+    margin: 200px;
+   
 `
 export const CardMainContainer = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
     color: #F8E00F;
     font-size: large;
     text-align: center;

@@ -14,7 +14,7 @@ const Router = () => {
                 <Route path='/list-page' element={<CharacterListPage />} />
                 <Route path='/detail-page/:i' element={<CharacterDetailPage />} />
                 <Route path='/planets-page' element={<PlanetsPage />} />
-                <Route path='/planet-detail/:l' element={<PlanetDetailPage />}/>
+                <Route path='/planet-detail/:i' element={<PlanetDetailPage />}/>
             </Routes>
         </BrowserRouter>
     )

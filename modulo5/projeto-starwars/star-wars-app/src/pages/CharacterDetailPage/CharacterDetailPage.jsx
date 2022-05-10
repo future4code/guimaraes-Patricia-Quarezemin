@@ -14,7 +14,7 @@ const CharacterDetailPage = () => {
         getCharacterDetail()
     }, [])
 
-    useEffect(() =>{
+    useEffect(() => {
         getPlanet()
     }, [])
 
@@ -29,10 +29,11 @@ const CharacterDetailPage = () => {
 
     const getPlanet = () => {
         axios
-        .get(`${BASE_URL}/people/${params.l}`)
-        .then((res) => setPlanet(res.data))
-        .catch((err) => console.log(err))
+            .get(`https://swapi.dev/api/planets/${params.i}`)
+            .then((res) => setPlanet(res.data))
+            .catch((err) => console.log(err))
     }
+    console.log(planet)
 
     const navigate = useNavigate()
 
@@ -40,20 +41,18 @@ const CharacterDetailPage = () => {
         navigate('/list-page')
     }
 
-    const characterListDetail = planet.map((character, i) =>{
-        return <p key={i}>{character.name}</p>
-    })
-
     return (
         <MainContainer>
             <ButtonCharacterList onClick={goToCharacterList}>Lista de Personagens</ButtonCharacterList>
             <CardContainer>
                 <CharacterCard>
-                    <img src={`https://starwars-visualguide.com/assets/img/characters/1.jpg`}
-                        width='250px' height='350px'></img>
+                    {/* <img src={`https://starwars-visualguide.com/assets/img/characters/1.jpg`}
+                        width='250px' height='350px'></img> */}
                     <TextCard>
                         <h3>{characterDetail.name}</h3>
-                        <h3> Planeta de origem: {characterListDetail.homeworld}</h3>
+                        <h4>Idade: {characterDetail.height}</h4>
+                        <h4>Cor dos olhos: {characterDetail.eye_color}</h4>
+                        <h4> Planeta de origem: {planet.name}</h4>
                     </TextCard>
                 </CharacterCard>
             </CardContainer>

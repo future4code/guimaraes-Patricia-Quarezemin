@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { BASE_URL } from '../../constants/urls'
 import { MainContainer, ButtonHome, CardContainer, CardMainContainer } from './styled'
 
 const PlanetDetailPage = () => {
@@ -21,7 +22,7 @@ const PlanetDetailPage = () => {
 
     const getDetailPlanet = () => {
         axios
-            .get(`https://swapi.dev/api/planets/${params.i}`)
+            .get(`${BASE_URL}/planets/${params.i}`)
             .then((res) => setPlanetDetail(res.data))
             .catch((err) => console.log(err.message))
     }
