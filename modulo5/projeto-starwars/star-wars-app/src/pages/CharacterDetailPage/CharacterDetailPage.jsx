@@ -43,17 +43,15 @@ const CharacterDetailPage = () => {
 
     return (
         <MainContainer>
-            <ButtonCharacterList onClick={goToCharacterList}>Lista de Personagens</ButtonCharacterList>
+            <ButtonCharacterList onClick={goToCharacterList}>Character List</ButtonCharacterList>
             <CardContainer>
                 <CharacterCard>
-                    {/* <img src={`https://starwars-visualguide.com/assets/img/characters/1.jpg`}
-                        width='250px' height='350px'></img> */}
-                    <TextCard>
+                    
                         <h3>{characterDetail.name}</h3>
-                        <h4>Idade: {characterDetail.height}</h4>
-                        <h4>Cor dos olhos: {characterDetail.eye_color}</h4>
-                        <h4> Planeta de origem: {planet.name}</h4>
-                    </TextCard>
+                        <h4>Age: {characterDetail.height}</h4>
+                        <h4>Eye Color: {characterDetail.eye_color}</h4>
+                        <h4> Home Planet: {planet.name}</h4>
+                    
                 </CharacterCard>
             </CardContainer>
         </MainContainer>

@@ -8,14 +8,13 @@ export const MainContainer = styled.div`
     height: 100vh;
 `
 export const ButtonCharacterList = styled.button`
-    display: flex;
-    flex-direction: row;
     height: 40px;
     background-color: #4E4B4B;
     font-size: large;
     color: #F8E00F;
-    padding: 30px;
+    margin: 50px;
     text-align: center;
+    border-radius: 8px;
 `
 
 export const CardContainer = styled.div`
@@ -33,11 +32,7 @@ export const CharacterCard = styled.div`
     border-radius: 8px;
     width: 250px;
     height: 250px;
-    text-align: flex-start;
-    display: flex;
+    text-align: center;
     padding: 20px;
 `
 
-export const TextCard = styled.div`
-    /* display: block; */
-`

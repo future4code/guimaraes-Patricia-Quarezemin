@@ -29,13 +29,13 @@ const PlanetDetailPage = () => {
 
     return (
         <MainContainer>
-            <ButtonHome onClick={goToPlanetsPage}>Lista de Planetas</ButtonHome>
+            <ButtonHome onClick={goToPlanetsPage}>Planets List</ButtonHome>
             <CardMainContainer>
                 <CardContainer>
                     <h2>{planetDetail.name}</h2>
-                    <h4>Clima: {planetDetail.climate}</h4>
-                    <h4>População: {planetDetail.population}</h4>
-                    <h4>Terreno: {planetDetail.terrain}</h4>
+                    <h4>Climate: {planetDetail.climate}</h4>
+                    <h4>Population: {planetDetail.population}</h4>
+                    <h4>Terrain: {planetDetail.terrain}</h4>
                 </CardContainer>
             </CardMainContainer>
         </MainContainer>

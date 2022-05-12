@@ -36,8 +36,8 @@ const CharacterListPage = () => {
                     width='180px' height='250px'></img>
             </CharacterCard>
         </CardsDiv>
-
     })
+
     return (
         <MainContainer>
             <ButtonHome onClick={goToHomePage}>Home</ButtonHome>
