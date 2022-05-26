@@ -40,7 +40,7 @@ const Dumbledore: postRedeSocial = {
 
 //b) Observe abaixo a função buscarPostsPorAutor(), escrita em Javascript:
 
-function buscarPostsPorAutor(posts: string, autorInformado: string) {
+function buscarPostsPorAutor():{posts: string, autorInformado: string} {
     return posts.filter(
       (post) => {
         return post.autor === autorInformado
@@ -48,5 +48,6 @@ function buscarPostsPorAutor(posts: string, autorInformado: string) {
     )
   }
 
-// Quais são as entradas e saídas dessa função? Copie a função para 
-//o mesmo arquivo .ts do array de posts e faça a tipagem necessária.
+// Quais são as entradas e saídas dessa função? 
+//R: As entradas e saídas são strings.
+//Copie a função para o mesmo arquivo .ts do array de posts e faça a tipagem necessária.

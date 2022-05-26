@@ -39,6 +39,7 @@ const pokemon3: pokemon = {
 //executar, ele será transpilado.
 
 //c) E se este arquivo estivesse dentro de uma pasta chamada src. O processo seria diferente? Se sim, descreva as diferenças.
-//R:
+//R: Não, o processo seria o mesmo pois os arquivos que estamos transpilando ficam na pasta src.
 
 //d) Existe alguma maneira de transpilar múltilplos arquivos de uma vez só? Caso conheça, explique como fazer.
+//R:
