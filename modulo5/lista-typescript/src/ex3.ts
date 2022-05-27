@@ -10,4 +10,4 @@ enum GENERO {
 }
 
 //Além dessas informações presentes em todos os filmes, alguns deles possuem uma informação opcional: 4 - Pontuação em site de resenha (ex. Metacritic, RotenTomatoes).
-//Considerando todas estas informações, crie uma função que receba todas essas informações como parâmetros (3 essesciais + 1 opcional) e retorne todas informações organbizadas em um type.
+//Considerando todas estas informações, crie uma função que receba todas essas informações como parâmetros (3 essesciais + 1 opcional) e retorne todas informações organizadas em um type.
