@@ -31,6 +31,15 @@ const clientela: clientes[] = [
 	{ cliente: "Soter", saldoTotal: 1200, debitos: [] }
 ]
 
-function carteiraDeClientes (): clientes [] {
-	return clientela[].reduce((saldoTotal, debitos) => saldoTotal - debitos)
+function carteiraDeClientes (clientela:clientes[]): clientes [] {
+	clientela.forEach((cliente) => {
+		const totalDebitos = cliente.debitos.reduce((a, b) => a + b, 0);
+		cliente.saldoTotal -= totalDebitos;
+		cliente.debitos = []
+	})
+
+	const clientesNegativados = clientela.filter((cliente) => cliente.saldoTotal < 0);
+	return clientesNegativados
 }
+
+console.log(carteiraDeClientes(clientela))

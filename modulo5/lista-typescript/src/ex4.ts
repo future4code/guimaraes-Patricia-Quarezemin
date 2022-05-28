@@ -26,6 +26,7 @@ const colaboradores: pessoaColaboradora[] = [
         { nome: "Paola" ,salário: 3500, setor: "marketing", presencial: true }
 
 ]
+
 enum SetoresEmpresa {
     MARKETING = 'Marketing',
     VENDAS = 'Vendas',
