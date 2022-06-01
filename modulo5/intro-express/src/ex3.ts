@@ -1,4 +1,6 @@
-export const usersPq = [
+import { user } from './ex2'
+
+export const usersPq: user[] = [
     {
         id: 123456,
         name: 'Patrícia Quarezemin',
