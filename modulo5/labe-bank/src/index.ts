@@ -27,14 +27,19 @@ app.post('/account/create', (req: Request, res: Response)=>{
 
          for(let user of usersBank) {
              if(user.CPF === newUser.CPF) {
-                 t
+                 throw new Error('CPF already registered.')
              }
          }    
+
+         if(!req.body.name || !req.body.CPF || !req.body.dateOfBirth) {
+             throw new Error('Please fill in all all fields.')
+         }
                
     } catch (error :any) {
         
     }
 })
+
 
 
 app.listen(3003, ()=>{
