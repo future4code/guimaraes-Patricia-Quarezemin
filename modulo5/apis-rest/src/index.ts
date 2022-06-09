@@ -18,22 +18,29 @@ app.use(cors())
 //b) Como você indicaria a entidade que está sendo manipulada?
 //R: '/user/list'
 
+app.get('/user', (req: Request, res: Response) =>{
+    res.send(users)
+})
+
 //Exercício 2 - Criar um endpoint que busque todos os usuários que tenham uma propriedade type específica recebendo
 //apenas um type por vez.
 
-app.get('/user/:id', (req: Request, res: Response) => {
+app.get('/user', (req: Request, res: Response) => {
 
     let errorCode = 500
     try {
 
-        const type = req.params.type
+        const type = req.query.type as string
 
-        const userList = users
+        const userList = users.filter((u) =>{
+            if (type.toLowerCase() === USER_TYPE.ADMIN) {
+               return u
+            }
 
-        if (type === USER_TYPE.ADMIN) {
             res.status(200).send(userList)
-        }
-    } catch (error: any) {
+        })
+
+            } catch (error: any) {
         res.status(errorCode).send(error.message)
     }
 })
@@ -84,7 +91,10 @@ app.get('/user', (req: Request, res: Response) => {
 
 //Exercício 4 - Crie um endpoint que use o método POST para adicionar um item ao nosso conjunto de usuários.
 //a) Mude o método do endpoint para PUT. O que mudou?
+//R: Não mudou nada, pois o usuário foi criado da mesma forma.
+
 //b) Você considera o método PUT apropriado para esta transação? Por quê?
+//R: Não acho esse endpoint apropriado para criação de um novo usuário, mas sim para atualizar alguma informação de um já existente!
 
 app.post('/user/create', (req: Request, res: Response) => {
 
