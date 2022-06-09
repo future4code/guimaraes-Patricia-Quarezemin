@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import { Request, Response } from 'express'
-import { usersBank } from './data'
+import { usersBank, account } from './data'
 
 
 const app = express()//agora temos todas as funcionalidades do express
@@ -17,7 +17,7 @@ app.use(cors())//habilita o cors
 
 app.post('/account/create', (req: Request, res: Response)=>{
     try {
-        const newUser = {
+        const newUser : account = {
             name: req.body.name,
             CPF: req.body.CPF,
             dateOfBirth: req.body.dateOfBirth,
@@ -31,12 +31,14 @@ app.post('/account/create', (req: Request, res: Response)=>{
              }
          }    
 
-         if(!req.body.name || !req.body.CPF || !req.body.dateOfBirth) {
+         if(!newUser.name || !newUser.CPF || !newUser.dateOfBirth) {
              throw new Error('Please fill in all all fields.')
          }
+
+         usersBank.push(newUser)
                
     } catch (error :any) {
-        
+        res.status(400).send(error.message)
     }
 })
 
