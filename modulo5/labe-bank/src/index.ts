@@ -35,6 +35,7 @@ app.post('/account/create', (req: Request, res: Response)=>{
              throw new Error('Please fill in all all fields.')
          }
 
+       
          usersBank.push(newUser)
                
     } catch (error :any) {
@@ -42,6 +43,20 @@ app.post('/account/create', (req: Request, res: Response)=>{
     }
 })
 
+//2. Pegar usuários existentes no array
+
+app.get('/user', (req: Request, res: Response) =>{
+    try {
+        if(usersBank.length === 0) {
+            throw new Error('No users registered.');            
+        }else{
+            res.status(200).send(usersBank)
+        }
+    } catch (error: any) {
+        res.status(500).send(error.message)
+    }
+    
+})
 
 
 app.listen(3003, ()=>{

@@ -1,4 +1,7 @@
-
+export enum Transaction {
+    PAYMENT = 'Payment',
+    DEPOSIT = 'Deposit'
+}
 
 export type account = {
     name: string,
@@ -9,6 +12,7 @@ export type account = {
 }
 
 type balance = {
+    transaction: Transaction,
     value: number,
     date: string,
     description: string
@@ -22,14 +26,16 @@ export const usersBank: account[] = [
         balance: 5.000,
         bankStatement: [
             {
+                transaction: Transaction.PAYMENT,
                 value: 50,
                 date: '09/06/2022',
                 description: 'presente da vovó'
             },
             {
-                value: 50,
+                transaction: Transaction.PAYMENT,
+                value: 700,
                 date: '09/06/2022',
-                description: 'presente da vovó'
+                description: 'pagamento cartão de crédito'
             }]
     },
     {
@@ -37,13 +43,39 @@ export const usersBank: account[] = [
         CPF: '005.455.852-15',
         dateOfBirth: '16/05/1985',
         balance: 0,
-        bankStatement: []
+        bankStatement: [
+            {
+                transaction: Transaction.PAYMENT,
+                value: 80,
+                date: '08/06/2022',
+                description: 'cinema'
+            },
+            {
+                transaction: Transaction.DEPOSIT,
+                value: 700,
+                date: '09/06/2022',
+                description: 'Cartão de crédito - Paty'
+            }
+        ]
     },
     {
-        name: 'Pedro',
-        CPF: '005.455.852-18',
-        dateOfBirth: '08/12/2020',
+        name: 'Leandro',
+        CPF: '005.455.852-17',
+        dateOfBirth: '19/10/1989',
         balance: 0,
-        bankStatement: []
+        bankStatement: [
+            {
+                transaction: Transaction.PAYMENT,
+                value: 50,
+                date: '09/06/2022',
+                description: 'lanche - Malabares'
+            },
+            {
+                transaction: Transaction.PAYMENT,
+                value: 38,
+                date: '08/06/2022',
+                description: 'presente do Pedro'
+            }
+        ]
     }
 ]
