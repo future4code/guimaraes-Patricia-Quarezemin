@@ -8,10 +8,21 @@ export default async function createUser(
     try {
         const { name, nickname, email } = req.body
 
-        await connection('User')
-        .insert({ name, nickname, email })
+        if(!name || !nickname || !email){
+            throw new Error('Parameter not sent!')
+        }
 
-        res.status(201).end('User created successfully')
+        await connection.raw(`
+        INSERT INTO User
+        (name, nickname, email)
+        VALUES(
+            "${req.body.name}",
+            "${req.body.nickname}",
+            "${req.body.email}"
+        )
+        `);
+
+        res.status(201).end(`User ${name} created successfully`)
     } catch (error) {
         res.status(500).end('Something weng wrong.')
     }
