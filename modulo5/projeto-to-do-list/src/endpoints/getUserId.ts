@@ -8,11 +8,13 @@ export default async function getUserId(
 
     try {
 
-        const { id } = req.params
-        const result: any = await connection.raw(`
-    SELECT id FROM User
-   `)
-        res.send(result[id])
+        const result = await connection('User')
+        .select('name')
+        .where({
+            id: req.params.id
+        });
+          
+        res.send(result)
 
     } catch (error: any) {
         res.status(500).send('Unexpected server error.')

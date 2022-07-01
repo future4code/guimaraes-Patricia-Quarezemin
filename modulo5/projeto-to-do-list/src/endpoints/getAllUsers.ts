@@ -1,6 +1,5 @@
 import { Request, Response } from 'express'
 import connection from '../connection'
-import { user } from '../types'
 
 export default async function getAllUsers(
     req: Request,
@@ -8,11 +7,10 @@ export default async function getAllUsers(
 ): Promise<void> {
     try {
 
-        const name = req.query
+       const result = await connection('User')
+       .select()
 
-        const users: user[] = await connection('user')
-
-        res.send(users)
+        res.send(result)
     } catch (error) {
         res.status(500).send("Unexpected server error.")
     }

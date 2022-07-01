@@ -1,6 +1,5 @@
 import { Request, Response } from 'express'
 import connection from '../connection'
-import { user } from '../types'
 
 export default async function createUser(
     req: Request,
@@ -12,9 +11,9 @@ export default async function createUser(
         await connection('User')
         .insert({ name, nickname, email })
 
-        res.status(201).end()
+        res.status(201).end('User created successfully')
     } catch (error) {
-        res.status(500).end()
+        res.status(500).end('Something weng wrong.')
     }
 
 
