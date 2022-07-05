@@ -1,9 +1,12 @@
 import { Request, Response } from 'express'
-import { connection } from '../../connection'
+import { connection } from '../connection'
 import { User } from '../types'
+import { v4 as generateId} from 'uuid'
 
-export const insertUser = async(req: Request, res: Response) => {
+export const createUser = async(req: Request, res: Response): Promise<any> => {
     try {
+
+        const newId = generateId()
 
         const { name, email, password } = req.body
 
@@ -30,11 +33,18 @@ export const insertUser = async(req: Request, res: Response) => {
             throw new Error(`O campo do email deve conter um "@" e um ".com"`)
         }
 
-        // const users: User = {
-        //     id: 
-        // }
+        const users: User = {
+            id: newId,
+            name,
+            email,
+            password
+        }
+        await connection("labecommerce_users")
+        .insert(users)
         
+        res.status(200).send('Usuário cadastrado com sucesso!')
+
     } catch (error: any) {
-        res.status(500).send(error.message || error.sqlMessage)
+        res.status(500).send(error.message)
     }
 } 
