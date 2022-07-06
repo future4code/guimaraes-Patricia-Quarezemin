@@ -1,0 +1,32 @@
+//Cadastro de usuário
+
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "Patrícia",
+    "email": "patricia@email.com",
+    "password": "[patquarezemin86]"
+}
+
+###
+
+//Buscar por todos os usuários
+GET http://localhost:3003/users
+
+###
+
+//Cadastro de produto
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Notebook Apple Air",
+    "price": 10.000,
+    "image_url": "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ"
+}
+
+###
+
+//Busca por todos os produtos
+GET http://localhost:3003/products
