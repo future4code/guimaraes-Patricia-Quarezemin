@@ -1,14 +1,14 @@
 import { Request, Response } from 'express'
 import { connection } from '../connection'
 
-export const getAllUsers = async(req: Request, res: Response): Promise<any> => {
-    
+export const getAllProducts = async(req: Request, res: Response) => {
+
     let statusCode = 400
 
     try {
         
-        const result = await connection("labecommerce_users")
-        .select("name")
+        const result = await connection("labecommerce_products")
+        .select('name')
 
         res.status(200).send(result)
 
