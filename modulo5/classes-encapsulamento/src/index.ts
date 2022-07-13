@@ -87,5 +87,9 @@ class Bank {
     constructor(account: UserAccount[]) {
         this.accounts = account
     }
+
+    getAccounts() {
+        return this.accounts
+    }
 }
 
