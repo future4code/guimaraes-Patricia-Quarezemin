@@ -82,7 +82,7 @@ class Customer extends User {
 
 }
 
-const Costumer1 = new Customer ('01', 'patricia@gmail', '123456', '8975855540690578', 5.000)
+const Costumer1 = new Customer('01', 'patricia@gmail', '123456', '8975855540690578', 5.000)
 
 console.log(`Id ${Costumer1.getId()}, email: ${Costumer1.getEmail()}, total: ${Costumer1.getPurchaseTotal}`)
 
@@ -93,7 +93,7 @@ console.log(`Id ${Costumer1.getId()}, email: ${Costumer1.getEmail()}, total: ${C
 //R: 2 vezes
 
 //Exercício 3
-const Costumer2 =  new Customer ('02', 'Pedro', 'pedro@email.com','7898521478651236', 300)
+const Costumer2 = new Customer('02', 'Pedro', 'pedro@email.com', '7898521478651236', 300)
 console.log(Costumer2)
 
 //a) Seria possível imprimir a senha (password) atrelada a essa instância? Por quê?
@@ -118,21 +118,57 @@ console.log(Customer1)
 
 //Exercícios - Polimorfismo
 
+//Exercício 1
+
 export interface Client {
     name: string,
     registrationNumber: number,
     consumedEnergy: number,
     calculateBill(): number
 
+}
 
-    const client: Client = {
-        name: 'Rafael',
-        registrationNumber: 4,
-        consumedEnergy: 100,
-        calculateBill: () => {
-            return 2
-        },
-    }
+const client: Client = {
+    name: 'Rafael',
+    registrationNumber: 4,
+    consumedEnergy: 100,
+    calculateBill: () => {
+        return 2
+    },
 }
 
 console.log(client)
+console.log(client.calculateBill())
+
+//a)  Quais propriedades você conseguiu imprimir? Teve alguma que não foi possível? Por que isso aconteceu?
+//R: Todas, somente a calculateBill que não foi impressa. Mas após dar o console.log em client.calculeBill() apareceu o 2 no terminal.
+
+//Exercício 2
+
+export abstract class Place {
+    constructor(protected cep: string) {}
+
+    public getCep(): string {
+        return this.cep
+    }
+}
+
+// const place = new Place ('79.032-422')
+// console.log(place)
+
+//a) Mesmo sabendo que não é possível, tente criar uma instância dessa classe (ou seja: new Place(...)). Qual foi o erro que o Typescript gerou?
+//R: O erro gerado foi: error TS2511: Cannot create an instance of an abstract class.
+
+//b) Pense e responda: o que precisaríamos fazer para conseguir efetivamente criar uma instância dessa classe?
+//R: Para criar uma instância de uma classe abstrata, precisamos declarar uma classe filha e criar uma instância dessa última.
+
+//Exercício 3
+
+// 3.1 - O que precisaríamos fazer para conseguir efetivamente criar uma instância da classe Place? (última pergunta do exercício anterior)
+//R: Para criar uma instância de uma classe abstrata, precisamos declarar uma classe filha e criar uma instância dessa última.
+
+//3.2) Por que a Place não é uma interface?
+//R: Place é uma classe porque precisa ter um acesso restrito a um dos seus atributos, o que é impossível de se fazer em interfaces.
+
+//3.3) Por que a classe Place é uma Classe Abstrata?
+//R: Place é abstrata porquê não enxergamos uma situação em que seria necessário criar uma instância dessa classe.
