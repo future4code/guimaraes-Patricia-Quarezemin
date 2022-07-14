@@ -1,0 +1,138 @@
+import app from './app'
+
+//Exercícios - Herança
+
+//Exercício 1
+
+class User {
+    private id: string;
+    private email: string;
+    private name: string;
+    private password: string;
+    // public introduceYourself: string
+
+    constructor(
+        id: string,
+        email: string,
+        name: string,
+        password: string
+        // introduceYourself: string
+    ) {
+        console.log("Chamando o construtor da classe User")
+        this.id = id
+        this.email = email
+        this.name = name
+        this.password = password
+        // this.introduceYourself = introduceYourself
+    }
+
+    public getId(): string {
+        return this.id
+    }
+
+    public getEmail(): string {
+        return this.email
+    }
+
+    public getName(): string {
+        return this.name
+    }
+
+    public introduceYourself(): string {
+        return 'Olá, bom dia!'
+    }
+}
+
+const User1 = new User('1', 'patricia@email.com', 'Patrícia', '123456')
+
+console.log(`Id: ${User1.getId()}, email: ${User1.getEmail()}, nome: ${User1.getName()}`)
+
+//a) Seria possível imprimir a senha (password) atrelada a essa instância?
+//R: Não, pois não existe nenhum método (GETTERS) para retornar o password.
+
+//b) Quantas vezes a mensagem "Chamando o construtor da classe User" foi impressa no terminal?
+//R: 1 vez.
+
+//Exercício 2
+
+class Customer extends User {
+    public purchaseTotal: number = 0
+    private creditCard: string
+
+    constructor(
+        id: string,
+        email: string,
+        password: string,
+        creditCard: string,
+        purchaseTotal: number
+    ) {
+        super(id, email, password, creditCard)
+        console.log('Chamando o construtor da classe Customer')
+        this.creditCard = creditCard
+        this.purchaseTotal = purchaseTotal
+    }
+
+    public getCreditCard(): string {
+        return this.creditCard
+    }
+
+    public getPurchaseTotal(): number {
+        return this.purchaseTotal
+    }
+
+}
+
+const Costumer1 = new Customer ('01', 'patricia@gmail', '123456', '8975855540690578', 5.000)
+
+console.log(`Id ${Costumer1.getId()}, email: ${Costumer1.getEmail()}, total: ${Costumer1.getPurchaseTotal}`)
+
+//a) Quantas vezes a mensagem "Chamando o construtor da classe Customer" foi impressa no terminal? 
+//R: 1 vez
+
+//b) Quantas vezes a mensagem "Chamando o construtor da classe User" foi impressa no terminal? Por quê?
+//R: 2 vezes
+
+//Exercício 3
+const Costumer2 =  new Customer ('02', 'Pedro', 'pedro@email.com','7898521478651236', 300)
+console.log(Costumer2)
+
+//a) Seria possível imprimir a senha (password) atrelada a essa instância? Por quê?
+
+//Exercício 4
+//Adicione um método público à classe User. Esse método deve ter o nome de introduceYourself
+//("apresente-se") e deve retornar a mensagem: "Olá, bom dia!". As classes filhas sempre têm 
+//acesso aos métodos públicos da classe pai. Então, para realizar o teste dessa sua função, 
+//faça com que a instância que você criou para a classe Customer chame esse método
+
+const Customer1 = new Customer('01', 'patricia@gmail.com', '123456', '8975855540690578', 5000)
+Customer1.introduceYourself()
+
+console.log(Customer1)
+
+//Não chamou o introduceYourself no terminal.
+
+//Exercício 5
+//Altere o método que você acabou de criar para que ele imprima a mensagem: "Olá, 
+//sou ${nome do usuário}. Bom dia!". Realize os mesmos testes anteriores.
+
+
+//Exercícios - Polimorfismo
+
+export interface Client {
+    name: string,
+    registrationNumber: number,
+    consumedEnergy: number,
+    calculateBill(): number
+
+
+    const client: Client = {
+        name: 'Rafael',
+        registrationNumber: 4,
+        consumedEnergy: 100,
+        calculateBill: () => {
+            return 2
+        },
+    }
+}
+
+console.log(client)
