@@ -9,21 +9,20 @@ class User {
     private email: string;
     private name: string;
     private password: string;
-    // public introduceYourself: string
-
+   
     constructor(
         id: string,
         email: string,
         name: string,
         password: string
-        // introduceYourself: string
+        
     ) {
         console.log("Chamando o construtor da classe User")
         this.id = id
         this.email = email
         this.name = name
         this.password = password
-        // this.introduceYourself = introduceYourself
+       
     }
 
     public getId(): string {
@@ -171,4 +170,31 @@ export abstract class Place {
 //R: Place é uma classe porque precisa ter um acesso restrito a um dos seus atributos, o que é impossível de se fazer em interfaces.
 
 //3.3) Por que a classe Place é uma Classe Abstrata?
-//R: Place é abstrata porquê não enxergamos uma situação em que seria necessário criar uma instância dessa classe.
+//R: Place é abstrata porquê não enxergamos uma situação em que seria necessário criar uma instância dessa classe. Neste caso específico o nosso
+
+export class Residence extends Place {
+    constructor(
+        protected residentsQuantity: number,
+        cep: string
+    ) {
+        super(cep)
+    }
+}
+
+export class Commerce extends Place {
+    constructor(
+        protected floorsQuantity: number,
+        cep: string
+    ) {
+        super(cep)
+    }
+}
+
+export class Industry extends Place {
+    constructor(
+        protected machinesQuantity: number,
+        cep: string
+    ) {
+        super(cep)
+    }
+}
