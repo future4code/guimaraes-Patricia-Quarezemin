@@ -8,13 +8,13 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3003/create
+POST http://localhost:3003/movie/create
 Content-Type: application/json
 
 {
     "title": "Elvis",
-    "description": "A cinebiografia de Elvis Presley acompanhará décadas da vida do artista (Austin Butler) e sua ascensão à fama, a partir do relacionamento do cantor com seu controlador empresário "Colonel" Tom Parker (Tom Hanks).",
-    "duration_in_minutes": "2horas e 39min",
+    "description": "A cinebiografia de Elvis Presley acompanhará décadas da vida do artista (Austin Butler) e sua ascensão à fama.",
+    "duration_in_minutes": "159 minutos",
     "year_of_release": "2022/07/14"
     
 }

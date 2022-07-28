@@ -3,7 +3,7 @@ import { v4 as generateId } from 'uuid'
 
 export class MovieBusiness {
     async create({id, title, description, duration_in_minutes, year_of_release}: any): Promise<void> {
-        if(!id || ! title || !description || !duration_in_minutes || !year_of_release) {
+        if(! title || !description || !duration_in_minutes || !year_of_release) {
             throw new Error('Dados inválidos!')
         }
 

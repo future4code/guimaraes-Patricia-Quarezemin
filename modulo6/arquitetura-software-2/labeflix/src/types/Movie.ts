@@ -3,8 +3,8 @@ export class Movie {
         private id: string,
         private title: string,
         private description: string,
-        private duration_in_minutes: number,
-        private year_of_release: number
+        private duration_in_minutes: string,
+        private year_of_release: string
     ) {}
 
     getId() {
@@ -39,11 +39,11 @@ export class Movie {
         this.description = newDescription
     }
 
-    setDurationInMinutes(newDuration: number) {
+    setDurationInMinutes(newDuration: string) {
         this.duration_in_minutes = newDuration
     }
 
-    setYearOfRelease(newYearRelease: number) {
+    setYearOfRelease(newYearRelease: string) {
         this.year_of_release = newYearRelease
     }
 }
