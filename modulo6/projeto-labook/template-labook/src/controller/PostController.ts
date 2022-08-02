@@ -6,13 +6,14 @@ export class PostController {
     async create(req: Request, res: Response): Promise<void> {
 
         try {
-            const { photo, description, type, createdAt } = req.body
+            const { photo, description, type, createdAt, authorId } = req.body
 
             const input: PostInputDTO = {
                 photo,
                 description,
                 type,
-                createdAt
+                createdAt,
+                authorId
             }
 
             const postbusiness = new PostBusiness()

@@ -8,13 +8,13 @@ export class PostBusiness {
     async create(input: PostInputDTO): Promise<void> {
 
         try {
-            const { photo, description, type, createdAt } = input
+            const { photo, description, type, createdAt, authorId } = input
 
-            if (!photo || !description || !type || !createdAt) {
+            if (!photo || !description || !type || !createdAt || !authorId) {
                 throw new InvalidRequest()
             }
 
-            const id = generateId()
+            const id: string = generateId()
 
             const postDataBase = new PostDataBase()
             await postDataBase.create({
@@ -22,7 +22,8 @@ export class PostBusiness {
                 photo,
                 description,
                 type,
-                createdAt
+                createdAt,
+                authorId
             })
         } catch (error: any) {
             throw new CustomError(error.message || error.sqlMessage, error.statusCode);

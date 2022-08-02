@@ -13,7 +13,7 @@ export class UserBussiness {
                 throw new InvalidRequest()
             }
 
-            const id = generateId()
+            const id: string = generateId()
 
             const userDataBase = new UserDataBase()
             await userDataBase.create({
