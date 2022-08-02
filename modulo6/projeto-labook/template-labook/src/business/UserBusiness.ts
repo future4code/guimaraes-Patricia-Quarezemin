@@ -1,20 +1,31 @@
 import { UserDataBase } from "../data/UserDataBase"
-import { v4 as generateId } from 'uuid'
+import { CustomError } from "../error/CustomError"
+import { InvalidRequest } from "../error/InvalidRequest"
+import { UserInputDTO } from "../model/UserInputDTO"
+import { generateId } from '../services/generateId'
 
 export class UserBussiness {
-    async create({name, email, password}: any): Promise<void> {
-        if(!name || !email || !password) {
-            throw new Error('Dados inválidos!')
+    async create(input: UserInputDTO): Promise<void> {
+
+        try {
+            const { name, email, password } = input
+            if (!name || !email || !password) {
+                throw new InvalidRequest()
+            }
+
+            const id = generateId()
+
+            const userDataBase = new UserDataBase()
+            await userDataBase.create({
+                id,
+                name,
+                email,
+                password
+            })
+
+        } catch (error: any) {
+            throw new CustomError(error.message || error.sqlMessage, error.statusCode);
+            
         }
-
-        const id = generateId()
-
-        const userDataBase = new UserDataBase()
-        await userDataBase.create({
-            id,
-            name,
-            email,
-            password
-        })
     }
 }
