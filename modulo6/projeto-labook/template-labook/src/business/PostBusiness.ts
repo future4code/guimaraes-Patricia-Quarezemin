@@ -1,5 +1,6 @@
 import { PostDataBase } from "../data/PostDataBase"
 import { CustomError } from "../error/CustomError";
+import { InvalidId } from "../error/InvalidId";
 import { InvalidRequest } from "../error/InvalidRequest";
 import { PostInputDTO } from "../model/PostInputDTO";
 import { generateId } from "../services/generateId"
@@ -27,8 +28,21 @@ export class PostBusiness {
             })
         } catch (error: any) {
             throw new CustomError(error.message || error.sqlMessage, error.statusCode);
-            
+
         }
 
+    }
+
+    async getPostId(id: string): Promise<void> {
+        try {
+            if (!id) {
+                throw new InvalidId()
+            }
+
+            return await new PostDataBase().getPostId(id)
+        } catch (error: any) {
+            throw new CustomError(error.message || error.sqlMessage, error.statusCode);
+
+        }
     }
 }

@@ -14,4 +14,14 @@ export class PostDataBase extends BaseDataBase {
         })
         .into(PostDataBase.TABLE_NAME)
     }
+
+    async getPostId(id: string): Promise<any> {
+
+        const result = await PostDataBase.connection
+        .select('*')
+        .where({ id })
+        .from(PostDataBase.TABLE_NAME)
+
+        return result
+    }
 }

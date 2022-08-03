@@ -6,9 +6,10 @@ export class PostController {
     async create(req: Request, res: Response): Promise<void> {
 
         try {
-            const { photo, description, type, createdAt, authorId } = req.body
+            const { id, photo, description, type, createdAt, authorId } = req.body
 
             const input: PostInputDTO = {
+                id,
                 photo,
                 description,
                 type,
@@ -24,5 +25,24 @@ export class PostController {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
 
+    }
+
+    async getPostId(req: Request, res: Response): Promise<void> {
+        try {
+            const { id } = req.params
+
+            // const queryResult: any = await 
+
+            // const post: PostInputDTO = {
+            //     id,
+            //     photo: ,
+            //     description,
+            //     type,
+            //     createdAt,
+            //     authorId
+            // }
+        } catch (error: any) {
+            
+        }
     }
 }
