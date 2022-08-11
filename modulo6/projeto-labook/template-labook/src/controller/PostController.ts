@@ -17,8 +17,8 @@ export class PostController {
                 authorId
             }
 
-            const postbusiness = new PostBusiness()
-            postbusiness.create(input)
+            const postBusiness = new PostBusiness()
+            postBusiness.create(input)
 
             res.status(201).send('Post criado com sucesso!')
         } catch (error: any) {
@@ -28,8 +28,11 @@ export class PostController {
     }
 
     async getPostId(req: Request, res: Response): Promise<void> {
+        
+        const { id } = req.params
+        
         try {
-            const { id } = req.params
+          
 
             // const queryResult: any = await 
 

@@ -11,8 +11,13 @@ export class PostBusiness {
         try {
             const { photo, description, type, createdAt, authorId } = input
 
-            if (!photo || !description || !type || !createdAt || !authorId) {
+            if (!photo || !description || !type || !createdAt) {
                 throw new InvalidRequest()
+            }
+
+            if(!authorId) {
+                throw new Error('Não autorizado, ID inválido');
+                
             }
 
             const id: string = generateId()
@@ -26,6 +31,8 @@ export class PostBusiness {
                 createdAt,
                 authorId
             })
+
+            return postDataBase.create(id, photo, description, type, createdAt, authorId)
         } catch (error: any) {
             throw new CustomError(error.message || error.sqlMessage, error.statusCode);
 
