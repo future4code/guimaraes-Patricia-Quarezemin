@@ -1,8 +1,8 @@
-import { BaseDatabase } from "./src/data/BaseDataBase"
+import { BaseDataBase } from "./data/BaseDataBase"
 
-class Migration extends BaseDatabase {
+class Migration extends BaseDataBase {
     async createTable() {
-        BaseDatabase.connection
+        BaseDataBase.connection
             .raw(`
         CREATE TABLE IF NOT EXISTS labook_users(
             id VARCHAR(255) PRIMARY KEY,

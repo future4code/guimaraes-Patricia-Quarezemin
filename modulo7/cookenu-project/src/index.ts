@@ -1,3 +1,5 @@
+
+import { UserRouter } from './routes/UserRouter'
 import { app } from './app'
 
-app.post('')
+app.use('/user', UserRouter)
