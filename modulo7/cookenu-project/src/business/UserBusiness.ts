@@ -1,11 +1,13 @@
 import { UserDataBase } from "../data/UserDataBase"
+import { CustomError } from "../error/CustomError";
+import { InvalidPassword } from "../error/InvalidPassword";
 import { InvalidRequest } from "../error/InvalidRequest";
 import { generateId } from "../services/GenerateId"
 
 export class UserBusiness {
     async create(input: any) {
         try {
-            const { email, password } = input
+            const { name, email, password } = input
 
             const id: string = generateId()
 
@@ -14,11 +16,22 @@ export class UserBusiness {
                 
             }
 
-            if(password < 6) {
-                throw new Error("");
+            if(password.length < 6) {
+                throw new InvalidPassword();
                 
             }
+
+            const userDataBase = new UserDataBase()
+            const newUser = {
+                id,
+                name,
+                email,
+                password
+            }
+
+            await userDataBase.insert(newUser)
         } catch (error: any) {
+            throw new CustomError(error.message || error.sqlMessage, error.statusCode);
             
         }
     }
