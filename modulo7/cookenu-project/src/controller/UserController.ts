@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { UserBusiness } from "../business/UserBusiness"
 
 export class UserController {
-    async create(req: Request, res: Response): Promise<void> {
+    async signup(req: Request, res: Response): Promise<void> {
 
         try {
             let message: 'Sucess, created user!'
@@ -13,7 +13,7 @@ export class UserController {
             }
 
             const userBusiness = new UserBusiness()
-            await userBusiness.create(input)
+            await userBusiness.signup(input)
 
             res.status(201).send()
         } catch (error: any) {
