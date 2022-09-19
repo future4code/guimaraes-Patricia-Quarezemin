@@ -10,6 +10,9 @@ const app = express()
 app.use(express.json())
 
 app.use('/products', productsRouter)
+app.use('/getProducts', productsRouter)
+app.use('/getName', productsRouter)
+app.use('/getTags', productsRouter)
 
 const server = app.listen(3003, () => {
     if(server) {
