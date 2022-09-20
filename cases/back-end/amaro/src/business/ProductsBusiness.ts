@@ -8,7 +8,7 @@ import { IdGenerator } from "../services/IdGenerator"
 const productsDatabase = new ProductsDatabase()
 
 export class ProductsBusiness {
-    createProductsCatalog = async (input: ProductInputDTO, products: ProductInputDTO) => {
+    createProductsCatalog = async (input: ProductInputDTO) => {
 
         const { name, tags } = input
 
@@ -24,8 +24,8 @@ export class ProductsBusiness {
 
         const newProduct = new Product(
             id,
-            products.name,
-            products.tags
+            name,
+            tags
         )
 
         await productsDatabase.createProductsCatalog(newProduct)
