@@ -1,18 +1,14 @@
 import React from 'react'
-import DiaSortePage from './pages/DiaSortePage'
-import LotoFacilPage from './pages/LotoFacilPage'
-import MegaSenaPage from './pages/MegaSenaPage'
-import QuinaPage from './pages/QuinaPage'
-import TimemaniaPage from './pages/TimemaniaPage'
+import { GlobalState } from './context/globalState'
+import { HomePage } from './pages/HomePage/HomePage'
+
 
 const App = () => {
   return (
     <div>
-      {/* <DiaSortePage />
-      <LotoFacilPage />
-      <MegaSenaPage />
-      <QuinaPage />
-      <TimemaniaPage /> */}
+      <GlobalState>
+      <HomePage />
+      </GlobalState>
     </div>
   )
 }
