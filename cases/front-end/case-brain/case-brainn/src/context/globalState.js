@@ -1,49 +1,76 @@
 import React, { useState, useEffect } from 'react'
 import GlobalStateContext from './globalStateContext'
 import axios from 'axios'
-import useRequestData from '../hooks/useRequestData'
 import { BASE_URL } from '../constants/url'
 
 export const GlobalState = (props) => {
-    const games = useRequestData([], `${BASE_URL}/loterias`)
-    const contest = useRequestData([], `${BASE_URL}/loterias-concursos`)
-    const [ lotery, setLotery ] = useState({ id: 0, nome: "mega-sena"})
-    const [ infoContest, setInfoContest ] = useState([])
 
-
-    useEffect(() => {
-        if(games.lenght) {
-            setLotery(games[0])
-        }
-    }, [games])
+    const [games, setGames] = useState([])
+    const [selected, setSelected] = useState('')
+    const [concursos, setConcursos] = useState([])
+    const [resultado, setResultado] = useState([])
+    const [luck, setLuck] = useState({ loteriaId: 0, concursoId: '2359' })
+    const [name, setName] = useState({ loteriaId: 0, nome: 'mega-sena' })
 
     useEffect(() => {
-        if(contest.lenght) {
-            contest.filter((c) => {
-                if(c.loteriaId === lotery.id) {
-                    getNumberContest(c.concursoId)
-                    console.log('aaaa')
-                }
+        getLoteria()
+        getConcurso()
+    }, [])
+
+    useEffect(() => {
+        jogoLoteria()
+    }, [selected])
+
+    const getLoteria = async () => {
+        await axios
+            .get(`${BASE_URL}/loterias-concursos`)
+            .then((res) => {
+                setGames(res.data)
             })
-        }
-    }, [lotery])
-
-
-    const getNumberContest = (id) => {
-        axios.get(`${BASE_URL}/concursos/${id}`)
-        .then((res) => {
-            setInfoContest(res.data)
-        })
-        .catch((err) => {
-            alert('Ocorreu um erro, tente novamente')
-        })
+            .catch((erro) => {
+                console.log(erro)
+            })
     }
 
-    const states = { games, contest, lotery, infoContest }
-    const setters = { setInfoContest, setLotery }
+    const getConcurso = async () => {
+        await axios
+            .get(`${BASE_URL}/loterias-concursos`)
+            .then((res) => {
+                setConcursos(res.data)
+            })
+            .catch((erro) => {
+                console.log(erro)
+            })
+    }
 
-    return(
-        <GlobalStateContext.Provider value={{ states, setters }}>
+    const jogoLoteria = async () => {
+        await axios
+            .get(`${BASE_URL}/concursos/${luck.concursoId}`)
+            .then((res) => {
+                setResultado(res.data)
+            })
+            .catch((erro) => {
+                console.log(erro)
+            })
+    }
+
+    const data = {
+        games,
+        setGames,
+        concursos,
+        setConcursos,
+        resultado,
+        setResultado,
+        selected,
+        setSelected,
+        luck,
+        setLuck,
+        name,
+        setName
+    }
+
+    return (
+        <GlobalStateContext.Provider value={data}>
             {props.children}
         </GlobalStateContext.Provider>
     )
