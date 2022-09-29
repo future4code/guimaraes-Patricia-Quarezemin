@@ -9,12 +9,11 @@ export const HomePage = () => {
     const { setLotery } = setters
 
     const onChangeSelect = (event) => {
-        games.map((g) => {
-            if(event.target.value === g.nome) {
+        games.forEach((g) => {
+            if (event.target.value === g.nome) {
                 setLotery(g)
             }
         })
-        return event
     }
 
     const renderNumbers = infoContest.numeros && infoContest.numeros.map((data) => {
@@ -28,26 +27,26 @@ export const HomePage = () => {
             {g.nome.toUpperCase()}
         </option>
     })
-    return(
+    return (
         <ContainerPage>
-        <ContainerLoto>
-            <ContainerSelect>
-                <select onChange={onChangeSelect}>
-                    {renderOptions}
-                </select>
-            </ContainerSelect>
-            <ContainerName>
-                <p>{lotery && lotery.nome.toUpperCase()}</p>
-            </ContainerName>
-        </ContainerLoto>
-        <ContainerNumbers>
-            <DivNumbers>
-                {renderNumbers}
-            </DivNumbers>
-            <DivText>
-                <p>Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.</p>
-            </DivText>
-        </ContainerNumbers>
+            <ContainerLoto>
+                <ContainerSelect>
+                    <select onChange={onChangeSelect}>
+                        {renderOptions}
+                    </select>
+                </ContainerSelect>
+                <ContainerName>
+                    <p>{lotery && lotery.nome.toUpperCase()}</p>
+                </ContainerName>
+            </ContainerLoto>
+            <ContainerNumbers>
+                <DivNumbers>
+                    {renderNumbers}
+                </DivNumbers>
+                <DivText>
+                    <p>Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.</p>
+                </DivText>
+            </ContainerNumbers>
         </ContainerPage>
     )
 }
